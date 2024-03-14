@@ -30,6 +30,12 @@ export default function MainContent() {
                 이미지<br/>변환하기
               </div>
             </Link>
+
+            <Link to="/news_recommend" className="featuree">
+              <div className="button">
+                맞춤형<br/>뉴스
+              </div>
+            </Link>
           </div>
 
           <div className="news">
