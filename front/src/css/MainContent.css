@@ -1,0 +1,135 @@
+.container {
+  background-color: #fff;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  margin-top: 40px;
+  margin-left: 70px;
+  font: 440 40px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  color: #001B62;
+}
+
+.info-1 {
+  margin-top: 20px;
+  margin-left: 70px;
+  font: 200 30px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  color: #000000;
+}
+
+
+.header {
+  align-self: center;
+  display: flex;
+  width: 100%;
+  max-width: 1788px;
+  justify-content: left;
+  gap: 10px;
+}
+
+.header-left img {
+  width: 100%;
+  max-width: 272px;
+}
+
+.header-right {
+  margin-top: 4%;
+  display: flex;
+  gap: 10px;
+}
+
+.nav-item {
+  color: #000;
+  text-align: center;
+  font: 300 35px Inter, sans-serif;
+  white-space: nowrap;
+}
+
+.divider {
+  background-color: #d1d1d1;
+  height: 1px;
+  width: 100%;
+}
+
+.content {
+  margin: 50px 100px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.feature {
+  display: flex;
+  gap: 50px;
+  text-decoration: none;
+  text-align: center;
+  color: #001B62;
+}
+
+
+.divider {
+  background-color: #9b9b9b;
+  height: 1px;
+  margin-top: 28px;
+  width: 100%;
+}
+
+.feature .button {
+  background-color: #c1c1c1; /* 버튼 배경색 */
+  color: #001B62; /* 텍스트 색상 */
+  border: none; /* 테두리 제거 */
+  padding: 100% 30px; /* 내부 여백 조정 */
+  font-size: 20px; /* 폰트 크기 조정 */
+  cursor: pointer; /* 마우스 커서 설정 */
+  transition: background-color 0s; /* 배경색 변화에 대한 전환 효과 추가 */
+  border-radius: 20px; /* 버튼의 모서리를 둥글게 만듭니다. */
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+.feature .button:hover {
+  background-color: #001B62; /* 호버 시 배경색 변경 */
+  color: #ffffff;
+}
+
+.news {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  
+}
+
+.news-title {
+  font: 440 50px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  color: #001B62;
+}
+
+.news-description {
+  margin-top: 20px;
+  font: 200 20px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.news-inner {
+  line-height: 3; /* 행간 - 원하는 행간의 배수로 조정 */
+  margin-top: 30px;
+  text-decoration: none; /* 링크 밑줄 제거 */
+  font: 100 10px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.news-inner .button {
+  background-color: #bdbdbd00; /* 버튼 배경색 */
+  color: #001B62; /* 텍스트 색상 */
+  border: none; /* 테두리 제거 */
+  padding: 10px; /* 내부 여백 */
+  font-size: 16px; /* 폰트 크기 */
+  cursor: pointer; /* 마우스 커서 설정 */
+  transition: background-color 0s; /* 배경색 변화에 대한 전환 효과 추가 */
+  border-radius: 20px; /* 버튼의 모서리를 둥글게 만듭니다. */
+  text-decoration: none; /* 밑줄 제거 */
+  display: inline-block; /* 버튼을 인라인 블록 요소로 표시합니다. */
+}
+
+.news-inner .button:hover {
+  background-color: #001B62; /* 호버 시 배경색 변경 */
+  color: #ffffff;
+}

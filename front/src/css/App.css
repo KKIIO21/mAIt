@@ -1,0 +1,10 @@
+.divider {
+  background-color: #d8d8d8;
+  height: 1px;
+  margin-top: 28px;
+  width: 100%;
+}
+
+.button {
+  color: black; /* 버튼의 기본 텍스트 색을 검정으로 설정 */
+}
