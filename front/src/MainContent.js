@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 export default function MainContent() {
   
     return (
-      
-
       <div className="container">
         <div className="info">
           mAIt : 메이트와 함께 인공지능과 가까워져요!

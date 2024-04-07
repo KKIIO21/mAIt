@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Kiosk from './kiosk';
 import ImageGenerator from './pages/image-generator';
+import ImageComplicate from './pages/image-complicate';
 import About from './about';
 import News from './pages/news';
 import Real from './pages/real_prac';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/about" element={<About/>} />
           <Route path="/pages/news" element={<News/>}/>
           <Route path="/pages/real_prac" element={<Real/>}/>
+          <Route path="/pages/image-complicate" element={<ImageComplicate/>}/>
 
         </Routes>
       </div>
