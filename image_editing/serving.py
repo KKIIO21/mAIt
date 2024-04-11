@@ -1,20 +1,16 @@
-from flask import Flask, request, jsonify, send_from_directory
-#import torch
 import PIL
 import os
 import uuid
+from flask import Flask, request, jsonify, send_from_directory
 from diffusers import StableDiffusionInstructPix2PixPipeline, EulerAncestralDiscreteScheduler
 
 app = Flask(__name__)
 
 model_id = "timbrooks/instruct-pix2pix"
-pipe = StableDiffusionInstructPix2PixPipeline.from_pretrained(model_id, safety_checker=None) # torch_dtype=torch.float16
-#pipe.to("cuda")
+pipe = StableDiffusionInstructPix2PixPipeline.from_pretrained(model_id, safety_checker=None)
 pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
 
-UPLOAD_FOLDER = 'uploads'
 RESULT_FOLDER = 'results'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['RESULT_FOLDER'] = RESULT_FOLDER
 
 def load_image(file_path):
@@ -29,6 +25,14 @@ def save_image(image, folder):
     image.save(file_path)
     return file_path
 
+# Prompt mappings for image conversion
+prompts = {
+    '0': "make the person younger",
+    '1': "make the person a Disney cartoon character",
+    '2': "make it Pixar style",
+    '3': "make the person a cyborg"
+}
+
 @app.route('/results/<filename>')
 def result_file(filename):
     return send_from_directory(app.config['RESULT_FOLDER'], filename)
@@ -39,28 +43,17 @@ def convert_image():
         file = request.files['file']
         prompt = request.form['prompt']
 
-        if prompt == '0':
-            prompt = "make the person younger"
-        elif prompt == '1':
-            prompt = "make the person a disney cartoon character"
-        elif prompt == '2':
-            prompt = "make it pixar style"
-        elif prompt == '3':
-            prompt = "make the person cyborg"
+        prompt = prompts.get(prompt, "make the person younger") # defaults to "make the person younger"
 
-        # 업로드된 이미지를 임시로 저장
-        uploaded_image_path = save_image(load_image(file), 'UPLOAD_FOLDER')
-        app.logger.info(f"Uploaded file saved to: {uploaded_image_path}")
-
-        # 이미지를 로드하고 변환 수행
-        image = load_image(uploaded_image_path)
+        # Load the image and perform the conversion
+        image = load_image(file)
         images = pipe(prompt, image=image, num_inference_steps=8, image_guidance_scale=1.5).images
         result_image = images[0]
 
-        # 결과 이미지를 저장
+        # Save the resulting image
         result_image_path = save_image(result_image, 'RESULT_FOLDER')
 
-        # 결과 이미지에 대한 URL 생성
+        # Generate URL for the resulting image
         result_image_url = request.url_root + 'results/' + os.path.basename(result_image_path)
 
         return jsonify({'result': 'success', 'image_url': result_image_url})
