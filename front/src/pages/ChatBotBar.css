@@ -1,0 +1,89 @@
+.voice-settings {
+    background-color: #d9d9d9;
+    display: flex;
+    width: 737px;
+    max-width: 100%;
+    flex-direction: column;
+    padding: 80px 48px;
+  }
+  
+  @media (max-width: 991px) {
+    .voice-settings {
+      padding: 0 20px;
+    }
+  }
+  
+  .voice-settings-title {
+    color: #08246d;
+    align-self: center;
+    margin-top: 156px;
+    font: 35px Pretendard, sans-serif;
+  }
+  
+  @media (max-width: 991px) {
+    .voice-settings-title {
+      margin-top: 40px;
+    }
+  }
+  
+  .voice-options {
+    display: flex;
+    margin-top: 31px;
+    gap: 19px;
+    font-size: 35px;
+    color: #6b6b6b;
+  }
+  
+  @media (max-width: 991px) {
+    .voice-options {
+      flex-wrap: wrap;
+    }
+  }
+  
+  .voice-option {
+    font-family: Pretendard, sans-serif;
+    border-radius: 30px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #f2f2f2;
+    justify-content: center;
+    padding: 15px 23px;
+  }
+  
+  @media (max-width: 991px) {
+    .voice-option {
+      padding: 0 20px;
+    }
+  }
+  
+  .additional-voice-options {
+    align-self: center;
+    display: flex;
+    margin-top: 16px;
+    gap: 20px;
+    font-size: 35px;
+    color: #6b6b6b;
+    white-space: nowrap;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 991px) {
+    .additional-voice-options {
+      white-space: initial;
+    }
+  }
+  
+  .divider {
+    border-color: rgba(8, 36, 109, 1);
+    border-style: solid;
+    border-width: 1px;
+    background-color: #08246d;
+    width: 580px;
+    max-width: 100%;
+    height: 1px;
+    margin: 38px 0 0 10px;
+  }
+  
+  .history-title {
+    color: #6b6b6b;
+  }
+  

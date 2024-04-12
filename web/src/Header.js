@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import logoImage from './images/mAIt.png';
-import './css/header.css';
+import logoImage from './mAIt.png';
+import './Header.css';
 
 function Header() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ function Header() {
             />
       </div>
       <div className="header-right">
-        <Link to="/about" className="nav-item">
+        <Link to="/AboutUs" className="nav-item">
           <button>메이트 알아보기</button>
         </Link>
         <Link to="/pages/kiosk" className="nav-item">
@@ -30,7 +30,7 @@ function Header() {
         </Link>
 
         <Link to="/pages/ChatBot" className='chatbot'>
-          <button>🩶여기서 다 물어보세요🩶(챗봇)</button>
+          <button>여기서 다 물어보세요 🤖</button>
         </Link>
       </div>
       

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Kiosk from './kiosk';
+import ChatBot from './pages/ChatBot';
 import ImageGenerator from './pages/image-generator';
 import ImageComplicate from './pages/image-complicate';
 import About from './about';
@@ -28,6 +29,8 @@ function App() {
           <Route path="/pages/news" element={<News/>}/>
           <Route path="/pages/real_prac" element={<Real/>}/>
           <Route path="/pages/image-complicate" element={<ImageComplicate/>}/>
+          <Route path="/pages/ChatBot" element={<ChatBot/>}/>
+
 
         </Routes>
       </div>

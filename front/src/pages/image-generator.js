@@ -30,7 +30,7 @@ export default function ImageGenerator() {
 
   return (
     <div className="containers">
-      <div className="image-1">이미지 변환하기 : 사진을 다양한 그림으로 바꿔봐요!</div>
+      <div className="image-1">이미지 변환하기 :2 사진을 다양한 그림으로 바꿔봐요!</div>
       <div className="image">Step1. 사진 선택하기</div>
       <div className="image-2">그림으로 바꾸고 싶은 사진을 컴퓨터에서 골라주세요.</div>
       <div className="dividing" />

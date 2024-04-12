@@ -1,0 +1,108 @@
+.app-container {
+    display: flex; /* Flexbox를 사용 */
+  }
+  
+
+
+.container {
+    flex-grow: 1; /* 기존 내용이 화면의 나머지 부분을 차지하도록 설정 */
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 60px;
+  }
+  
+  @media (max-width: 991px) {
+    .container {
+      padding: 20px;
+    }
+  }
+  
+  .content-wrapper {
+    display: flex;
+    margin-top: 0px;
+    width: 750px;
+    max-width: 100%;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 991px) {
+    .content-wrapper {
+      margin-top: 40px;
+    }
+  }
+  
+  .image-wrapper {
+    aspect-ratio: 2;
+    object-fit: auto;
+    object-position: center;
+    width: 300px;
+    align-self: center;
+    max-width: 100%;
+  }
+  
+  .title {
+    color: #000;
+    text-align: center;
+    align-self: center;
+    margin-top: 6px;
+    font: 300 35px Pretendard, sans-serif;
+  }
+  
+  .question-section, .suggestion-section {
+    margin-top: 66px;
+  }
+  
+  @media (max-width: 991px) {
+    .question-section, .suggestion-section {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }
+  
+  .question-row, .suggestion-row {
+    gap: 20px;
+    display: flex;
+  }
+  
+  @media (max-width: 991px) {
+    .question-row, .suggestion-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+  }
+  
+  .question-column, .suggestion-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 50%;
+    margin-left: 0;
+  }
+  
+  @media (max-width: 991px) {
+    .question-column, .suggestion-column {
+      width: 100%;
+    }
+  }
+  
+  .question-content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  @media (max-width: 991px) {
+    .question-content {
+      margin-top: 40px;
+    }
+  }
+  
+  .question-title {
+    color: #000;
+    align-self: center;
+  }
+  
