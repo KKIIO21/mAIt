@@ -1,0 +1,185 @@
+.chat-container {
+    display: flex;
+    height: 100vh; /* 전체 화면 높이 */
+    position: fixed;
+
+  }
+  
+  .chat {
+    overflow-y: auto;
+    height: 100vh;;
+    width: 50%;
+    background-color: #b5b5b5; 
+    overflow-y: auto; /* 내용이 많을 경우 스크롤 */
+  }
+
+  .highlight {
+    color: #001B62; /* 원하는 색상 코드 */
+  }
+
+  .new-chat button {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    width: 90%;
+    padding: 10px 10px;
+    font: 200 23px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px 10px;
+  }
+
+  .voice-explain {
+    color: #ffffff;
+    font: 440 28px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .voice-choice{
+    margin-bottom: 20px;
+  }
+  
+  .voice-choice button {
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 5px 10px;
+    font: 200 23px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px 10px;
+  }
+  .voice-choice button:hover {
+    background-color: #001B62; /* 호버 시 배경색 변경 */
+    color: #ffffff;
+  }
+
+  .ch-divider {
+    background-color: #d1d1d1;
+    height: 1px;
+    width: 100%;
+  }
+  .ex-explain {
+    color: #000000;
+    font: 440 20px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+
+
+  .chat-space {
+    overflow-y: auto;
+    width: 100%;
+    background-color: #fff; 
+    padding: 10px;
+    max-height: 500px; /* 채팅 박스의 최대 높이 설정 */
+    overflow-y: auto; /* 스크롤바 추가 */
+  }
+  
+  .chat-list {
+      display: flex;
+      width: 670px;
+      flex-direction: column; /* 채팅 메시지를 역순으로 쌓기 */
+      align-items:flex-end; /* 오른쪽 정렬 */
+      padding: 20px;
+      height: 400px;
+      overflow-y: auto; /* 스크롤바 추가 */
+    }
+
+  .last-chat {
+    max-height: 400px; /* 채팅 박스의 최대 높이 설정 */
+    overflow-y: auto; /* 스크롤바 추가 */
+
+  }
+  
+  .last-chat button {
+    background-color: #ffffff18;
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    padding: 30px 15px;
+    text-align: left;
+    font: 200 23px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .last-chat button:hover {
+    background-color: #001B62; /* 호버 시 배경색 변경 */
+    color: #ffffff;
+  }
+
+  .chat-logo {
+    display: flex;
+    margin-top: 0px;
+    width: 300px;
+    max-width: 50%;
+    flex-direction: column;
+  }
+
+  .chat-input {
+    font: 200 20px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    width: 70%;
+    height: 50px;
+    background-color: #c8c8c843;
+    border: none;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: space-between;
+  }
+  .chat-inputing {
+    position: fixed;
+    width: 70%;
+    height: 50px;
+    border: none;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .chat-inputing button {
+    background-color: #ffffff00;
+    margin-left: 10px;
+    color: #747474;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font: 200 23px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+
+  .chat-inputing button:hover {
+    background-color: #001B62;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+  }
+  .message {
+    background-color: #f1f0f0; /* 말풍선 배경색 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    padding: 10px 15px; /* 내부 여백 */
+    margin-bottom: 10px; /* 메시지 간 간격 */
+    max-width: 80%; /* 말풍선 최대 너비 */
+    word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
+  }
+  .message-sent {
+    align-self: flex-end; /* 보낸 메시지 오른쪽 정렬 */
+    background-color: #007bff; /* 보낸 메시지 배경색 */
+    color: white; /* 텍스트 색상 */
+  }

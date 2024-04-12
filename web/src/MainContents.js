@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 
 export default function MainContent() {
-  
     return (
       <div className="main_container">
         <div className="main-1">
@@ -23,7 +22,7 @@ export default function MainContent() {
               </div>
             </Link>
 
-            <Link to="/pages/image-generator" className="main-con1">
+            <Link to="/Pages/Generator" className="main-con1">
               <div className="main-button">
                 이미지<br/>변환하기
               </div>

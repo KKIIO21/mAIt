@@ -1,15 +1,16 @@
-.info {
+.about {
     margin-top: 40px;
     margin-left: 70px;
     font: 440 40px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #001B62;
   }
   
-  .info-1 {
+  .about-1 {
     margin-top: 20px;
     margin-left: 70px;
     font: 200 30px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #000000;
+    line-height: 1.5;
   }
   
 
