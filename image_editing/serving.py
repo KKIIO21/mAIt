@@ -10,7 +10,9 @@ model_id = "timbrooks/instruct-pix2pix"
 pipe = StableDiffusionInstructPix2PixPipeline.from_pretrained(model_id, safety_checker=None)
 pipe.scheduler = EulerAncestralDiscreteScheduler.from_config(pipe.scheduler.config)
 
+UPLOAD_FOLDER = 'uploads'
 RESULT_FOLDER = 'results'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['RESULT_FOLDER'] = RESULT_FOLDER
 
 def load_image(file_path):
@@ -19,10 +21,13 @@ def load_image(file_path):
     image = image.convert("RGB")
     return image
 
-def save_image(image, folder):
+def save_image(image, folder, quality=None):
     unique_filename = str(uuid.uuid4()) + '.jpg'
     file_path = os.path.join(app.config[folder], unique_filename)
-    image.save(file_path)
+    if quality is not None:
+        image.save(file_path, quality=quality)
+    else:
+        image.save(file_path)
     return file_path
 
 # Prompt mappings for image conversion
@@ -44,6 +49,10 @@ def convert_image():
         prompt = request.form['prompt']
 
         prompt = prompts.get(prompt, "make the person younger") # defaults to "make the person younger"
+
+        # Save uploaded images temporarily
+        uploaded_image_path = save_image(load_image(file), 'UPLOAD_FOLDER', quality=50) # defaults Default downgrade to 50% quality
+        app.logger.info(f"Uploaded file saved to: {uploaded_image_path}")
 
         # Load the image and perform the conversion
         image = load_image(file)
