@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './ChatBot.css';
-import logoImage from './mAIt.png';
 
 const ChatBot = () => {
     const [selectedVoice, setSelectedVoice] = useState(null);
