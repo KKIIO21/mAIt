@@ -18,22 +18,21 @@ function Header() {
               src={logoImage}
               className="logo"
               alt="Logo"
-              onClick={() => navigateTo('/')} // 이미지를 클릭하면 홈으로 이동합니다.
+              onClick={() => navigateTo('/')} 
             />
       </div>
       <div className="header-right">
         <Link to="/AboutUs" className="nav-item">
           <button>메이트 알아보기</button>
         </Link>
-        <Link to="/pages/kiosk" className="nav-item">
+        <Link to="/pages/kiosk" className="nav-item2">
           <button>사용 설명서</button>
         </Link>
 
         <Link to="/pages/ChatBot" className='chatbot'>
-          <button>[🤖 여기서 다 물어보세요 🤖]</button>
+          <button>🤖 여기서 다 물어보세요 🤖</button>
         </Link>
       </div>
-      
     </div>
   );
 }

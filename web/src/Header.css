@@ -1,9 +1,10 @@
 .nav-item button {
     background-color: #007bff00;
-    color: #000000;
+    color: #454545;
     border: none;
-    padding: 10px 20px;
-    font: 400 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    width: 14vw;
+    height: 2.7vw;
+    font: 200 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     cursor: pointer;
     transition: background-color 0s; 
     border-radius: 20px;
@@ -13,46 +14,75 @@
   }
   
   .nav-item button:hover {
+    font: 400 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     background-color: #001B62; 
     color: #ffffff;
   }
 
-  .chatbot button {
-    background-color: #001c6217; /* 버튼 배경색 */
-    color: #001c62; /* 텍스트 색상 */
+
+  .nav-item2 button {
+    background-color: #007bff00;
+    color: #000000;
     border: none;
-    padding: 10px 20px; 
-    font: 480 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    width: 10vw;
+    height: 2.7vw;
+    font: 200 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    cursor: pointer;
+    transition: background-color 0s; 
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    
+  }
+  
+  .nav-item2 button:hover {
+    font: 400 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    background-color: #001B62; 
+    color: #ffffff;
+  }
+
+
+  .chatbot button {
+    background-color: #001c6217; 
+    color: #001c62; 
+    width: 23vw;
+    height: 2.7vw;
+    border: none;
+    font: 400 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     cursor: pointer; 
-    border-radius: 25px; 
-    text-decoration: none; /* 밑줄 제거 */
-    display: inline-block; /* 버튼을 인라인 블록 요소로 표시합니다. */
+    border-radius: 20px; 
+    text-decoration: none; 
+    display: inline-block;
 
   }
 
   .chatbot button:hover{
+    font: 480 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     background-color: #001c62; 
     color: white;
     
   }
 
   .header {
-    align-self: center;
+    margin-top: 1vw;
+    margin-left : 1vw;
+    margin-bottom: 1vw;
     display: flex;
-    width: 100%;
-    max-width: 1788px;
+    align-items: center;
     justify-content: left;
-    gap: 10px;
+    gap: 20px;
   }
   
   .header-left img {
-    width: 90%;
-    max-width: 272px;
+    width: 7vw;
     height: auto;
+    margin-right:2vw;
+    margin-left: 2vw;
   }
   
   .header-right {
-    margin-top: 4%;
+    align-items: center;
+
     display: flex;
     gap: 10px;
   }

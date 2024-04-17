@@ -9,19 +9,20 @@ import Output from './Pages/Generator/Output.js';
 
 
 import './App.css';
+import MainContentt from './MainContents2.js';
 
 function App() {
   return (
     <Router>
       <div>
         <Header />
-        <div className="divider" />
+        <div className="hdivider" />
           <Routes>
-            <Route path='/web/src/MainContents.js' element = {<MainContent/>}/>
+            <Route path='/web/src/MainContents2.js' element = {<MainContent/>}/>
           </Routes>
       
         <Routes>
-          <Route path="/" element={<MainContent />} />
+          <Route path="/" element={<MainContentt />} />
           <Route path="/AboutUs" element={<AboutUs/>} />
           <Route path="/Pages/ChatBot" element={<ChatBot/>} />
           <Route path="/Pages/Generator" element={<Generator/>} />
