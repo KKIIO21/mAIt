@@ -8,25 +8,19 @@
   .main-1 {
     margin-top: 40px;
     margin-left: 70px;
-    font: 440 40px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    font: 440 2.7vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #001B62;
   }
   
   .main-2 {
     margin-top: 20px;
     margin-left: 70px;
-    font: 200 30px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    font: 200 2.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #000000;
   }
   
   
   
-  .nav-item {
-    color: #000;
-    text-align: center;
-    font: 300 35px Inter, sans-serif;
-    white-space: nowrap;
-  }
   
   .divider {
     background-color: #d1d1d1;
@@ -49,7 +43,7 @@
 
   .main-con1 {
     text-decoration: none; /* 밑줄 제거 */
-    font: 440 45px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    font: 440 3.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #000000;
 
 
@@ -60,17 +54,21 @@
     background-color: #9b9b9b;
     height: 1px;
     margin-top: 28px;
-    width: 100%;
+    width: 80%;
   }
   
   .main-con .main-button {
     border: 1px solid #001B62;
-    color: #000000; /* 텍스트 색상 */
-    padding: 150px 80px; /* 내부 여백 조정 */
-    cursor: pointer; /* 마우스 커서 설정 */
-    transition: background-color 0s; /* 배경색 변화에 대한 전환 효과 추가 */
-    border-radius: 20px; /* 버튼의 모서리를 둥글게 만듭니다. */
-    text-decoration: none; /* 밑줄 제거 */
+    color: #000000; 
+    cursor: pointer; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25vw;
+    height: 50vh;
+    transition: background-color 0s; 
+    border-radius: 20px;
+    text-decoration: none;
     line-height: 1.5;
   }
   
@@ -81,8 +79,12 @@
   
   .news {
     border: 1px solid rgb(156, 156, 156);
-    border-radius: 5%;
-    padding: 5%;
+    width: 30vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     margin-left: 50px;
@@ -90,20 +92,20 @@
   }
   
   .news-title {
-    font: 440 50px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    font: 440 3.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #000000;
   }
   
   .news-description {
     margin-top: 20px;
-    font: 200 20px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    font: 200 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
   }
   
   .news-inner {
-    line-height: 3; /* 행간 - 원하는 행간의 배수로 조정 */
+    line-height: 3;
     margin-top: 30px;
-    text-decoration: none; /* 링크 밑줄 제거 */
-    font: 100 10px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    text-decoration: none; 
+    font: 100 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
   }
   
   .news-inner .button {
@@ -113,10 +115,10 @@
     padding: 10px; 
     font-size: 16px;
     cursor: pointer; 
-    transition: background-color 0s; /* 배경색 변화에 대한 전환 효과 추가 */
+    transition: background-color 0s; 
     border-radius: 20px; 
-    text-decoration: none; /* 밑줄 제거 */
-    display: inline-block; /* 버튼을 인라인 블록 요소로 표시합니다. */
+    text-decoration: none; 
+    display: inline-block;
   }
   
   .news-inner .button:hover {

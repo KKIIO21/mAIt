@@ -60,7 +60,7 @@ export default function Generator() {
 
       <div className="image-3">다 선택하셨나요? 이제 한 번 바꿔봐요! 아래의 버튼을 클릭해주세요.</div>
       <div className="last">
-        <Link to="/Output" className="go">
+        <Link to="/Pages/Generator/Output" className="go">
           <div className="button">
             바꾸기!
           </div>

@@ -1,19 +1,20 @@
 .about {
-    margin-top: 40px;
-    margin-left: 70px;
-    font: 440 40px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    margin-top: 3vw;
+    margin-left: 4vw;
+    font: 440 4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #001B62;
   }
   
   .about-1 {
-    margin-top: 20px;
-    margin-left: 70px;
-    font: 200 30px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    margin-top: 1.7vw;
+    margin-left: 6vw;
+    font: 200 2.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #000000;
     line-height: 1.5;
   }
   
 
 .teams img {
-    width: 300px;
+  width: 23vw;
+  height: auto;
 }

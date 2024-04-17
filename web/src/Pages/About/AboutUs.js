@@ -10,7 +10,7 @@ export default function AboutUs() {
     return (
       <div className="container">
         <div className="about">
-          mAIt가 무엇일까요?
+          📍mAIt가 무엇일까요?
         </div>
         <div className="about-1">
           메이트는 mate 와 AI의 합성어로,<br/>

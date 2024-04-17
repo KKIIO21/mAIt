@@ -5,7 +5,7 @@ import AboutUs from './Pages/About/AboutUs.js';
 import MainContent from './MainContents.js';
 import ChatBot from './Pages/ChatBot/ChatBot.js';
 import Generator from './Pages/Generator/Generator.js';
-import Output from './Pages/Generator/Output/Output.js';
+import Output from './Pages/Generator/Output.js';
 
 
 import './App.css';
