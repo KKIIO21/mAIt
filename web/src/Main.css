@@ -26,15 +26,20 @@
   .contents {
     margin-top: 2vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap : 1vw;
   }
+
 
   .mcon {
     display: flex;
     flex-direction: column;
-    gap: 3vw;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
     text-decoration: none;
     text-align: center;
+    margin-right: 1vw;
   }
 
   .mcon1 {
@@ -52,7 +57,7 @@
   
   .mcon .main-button {
     border: none;
-    background-color: #eeeeee;
+    background-color: #ffffff;
     color: #001B62; 
     cursor: pointer; 
     display: flex;
@@ -70,6 +75,7 @@
   .mcon .main-button:hover {
     background-color: #001B62; 
     color: #ffffff;
+
   }
   
   .news {

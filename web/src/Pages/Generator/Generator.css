@@ -69,6 +69,6 @@
   }
   
   .button:hover {
-    background-color: #001B62; /* 호버 시 배경색 변경 */
+    background-color: #001B62; 
     color: #ffffff;
   }

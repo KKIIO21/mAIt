@@ -6,6 +6,7 @@ import MainContent from './MainContents.js';
 import ChatBot from './Pages/ChatBot/ChatBot.js';
 import Generator from './Pages/Generator/Generator.js';
 import Output from './Pages/Generator/Output.js';
+import Kiosk from './Pages/Kiosk/Kiosk.js';
 
 
 import './App.css';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/Pages/ChatBot" element={<ChatBot/>} />
           <Route path="/Pages/Generator" element={<Generator/>} />
           <Route path="/Pages/Generator/Output" element={<Output/>} />
+          <Route path="/Pages/Kiosk" element={<Kiosk/>} />
 
         </Routes>
       </div>
