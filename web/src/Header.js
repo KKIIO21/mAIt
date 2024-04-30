@@ -30,7 +30,7 @@ function Header() {
         </Link>
 
         <Link to="/pages/ChatBot" className='chatbot'>
-          <button>🤖 여기서 다 물어보세요 🤖</button>
+          <button>🤖 챗봇 🤖</button>
         </Link>
       </div>
     </div>
