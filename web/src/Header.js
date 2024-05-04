@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import logoImage from './mAIt.png';
+import chatImage from './강아지.png';
 import './Header.css';
 
 function Header() {
@@ -30,7 +31,14 @@ function Header() {
         </Link>
 
         <Link to="/pages/ChatBot" className='chatbot'>
-          <button>🤖 챗봇 🤖</button>
+          <button>
+            챗봇
+            <img
+              src={chatImage}
+              className="chatdog"
+              alt="DOG"
+            />
+            </button>
         </Link>
       </div>
     </div>

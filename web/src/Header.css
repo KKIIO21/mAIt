@@ -10,7 +10,6 @@
     border-radius: 20px;
     text-decoration: none;
     display: inline-block;
-    
   }
   
   .nav-item button:hover {
@@ -32,7 +31,6 @@
     border-radius: 20px;
     text-decoration: none;
     display: inline-block;
-    
   }
   
   .nav-item2 button:hover {
@@ -45,15 +43,16 @@
   .chatbot button {
     background-color: #001c6217; 
     color: #001c62; 
-    width: 9vw;
-    height: 2.5vw;
+    width: 10vw;
+    height: 4vw;
     border: none;
     font: 400 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     cursor: pointer; 
     border-radius: 20px; 
     text-decoration: none; 
     display: inline-block;
-
+    justify-content: center;
+    text-align: center;
   }
 
   .chatbot button:hover{
@@ -82,7 +81,11 @@
   
   .header-right {
     align-items: center;
-
     display: flex;
     gap: 10px;
+  }
+
+  .chatdog {
+    width: 2.5vw;
+    height: auto;
   }

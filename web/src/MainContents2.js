@@ -9,13 +9,13 @@ export default function MainContentt() {
     return (
       <div className="main_cons">
         <img
-              loading="lazy"
               src={logoImage}
               className="mlogo"
               alt="MLogo"
             />
         <div className="main-word">
-          : 손쉽게 인공지능을 체험하고 훈련하세요!
+          : 디지털 리터러시 능력 향상을 위한 친구, <br/>
+          <span>mAIt</span>와 함께 성장하세요
         </div>
 
         <div className="contents">

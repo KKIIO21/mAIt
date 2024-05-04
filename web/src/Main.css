@@ -1,5 +1,5 @@
 .main_cons {
-    margin-top: 5vw;
+    margin-top: 3.5vw;
     margin-left: 20vw;
     margin-right: 20vw;
     padding-bottom: 50px;
@@ -21,7 +21,15 @@
     margin-left: 70px;
     font: 200 2.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #000000;
+    line-height: 1.5;
   }
+
+  .main-word span{
+    font: 440 3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    color: #001B62; 
+  }
+
+
 
   .contents {
     margin-top: 2vw;
