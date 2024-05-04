@@ -3,8 +3,10 @@ import os
 import uuid
 from flask import Flask, request, jsonify, send_from_directory
 from diffusers import StableDiffusionInstructPix2PixPipeline, EulerAncestralDiscreteScheduler
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 model_id = "timbrooks/instruct-pix2pix"
 pipe = StableDiffusionInstructPix2PixPipeline.from_pretrained(model_id, safety_checker=None)
@@ -32,10 +34,10 @@ def save_image(image, folder, quality=None):
 
 # Prompt mappings for image conversion
 prompts = {
-    '0': "make the person younger",
-    '1': "make the person a Disney cartoon character",
-    '2': "make it Pixar style",
-    '3': "make the person a cyborg"
+    '젊은시절': "make the person younger",
+    '디즈니': "make the person a Disney cartoon character",
+    '픽사': "make it Pixar style",
+    '사이보그': "make the person a cyborg"
 }
 
 @app.route('/results/<filename>')
