@@ -1,17 +1,126 @@
+.kiosk_simulation {
+    display: none;
+}
+
+#페이지설명 {
+    padding-left: 10%;
+    width: 80%;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 900;
+    line-height: 200%;
+}
+
+#설명배경 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #595959;
+    opacity: 0.7;
+    display: none;
+    font-size: 20px;
+    display: none;
+    justify-content: center;
+
+}
+
+#mega_menu_bar {
+    border: solid red 8px;
+}
+
+#터치 {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#설명 {
+    top: 0;
+    display: none;
+    justify-content: center;
+
+}
+#설명 div {
+    width: 360px;
+    height: fit-content;
+    background: #78797ae3;
+    color: white;
+    font: bolder 17px;
+    text-align: center;
+    line-height: 250%;
+
+}
+[id ^= step] {
+    display: none;
+}
+#step1 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#step2 {
+    position: absolute;
+
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#step3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#step4 {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#step5 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#step6 {
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#order_1 {
+    font-size:40px;
+}
+
+
+
+
+
+/**/
 body {
     width: 100%;
     height: 100%;
-    /*background: beige;*/
+
+
 }
-.mkiosk {
+
+.main {
     width: 100%;
-    height: 85vh;
+    height: 100vh;
 
     top: 0;
     left: 0;
     right: 0;
 
-    /*background: rgb(207, 216, 194);*/
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
 }
 
 .wrapper {
@@ -23,6 +132,13 @@ body {
     
 }
 
+
+/*할지 말지 모르겠는 홈버튼*/
+.homebtn {
+    height: 15vh;
+}
+
+
 /*타이틀 부분*/
 .title {
     height: 20vh;
@@ -31,12 +147,14 @@ body {
 }
 
 .maintitle {
-    font: 440 4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
-    margin-bottom: 1.2vw;
+
+    font-size: 40px;
+    font-weight: bolder;
+
 }
 
 .subtitle {
-    font: 200 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    font-size: 2vh;
     line-height: 3vh;
     text-align: center;
 }
@@ -62,8 +180,8 @@ body {
 
 #menubtn div {
 
-    width: 25vw;
-    height: 25vw;
+    width: 20vw;
+    height: 20vw;
     /* 컴퓨터에서는 .menu width: 65% 에 각각 15vw 정도가 적당함 위 값은 모바일*/
     background-size: 100% 100%;
     padding: 0;
@@ -74,27 +192,27 @@ body {
 }
 
 .simulation {
-    background-image: url(./img/btn_실전연습.png);
+    background-image: url(img/btn_실전연습.png);
 }
 
 .learn {
-    background-image: url(./img/btn_배우기.png);
+    background-image: url(img/btn_배우기.png);
 }
 
 .help {
-    background-image: url(./img/btn_도움말.png);
+    background-image: url(img/btn_도움말.png);
 }
 
 .mega {
-    background-image: url(./img/btn_메가커피.png);
+    background-image: url(img/btn_메가커피.png);
 }
 
 .lotteria {
-    background-image: url(./img/btn_롯데리아.png);
+    background-image: url(img/btn_롯데리아.png);
 }
 
 .macdonalds {
-    background-image: url(./img/btn_맥도날드.png);
+    background-image: url(img/btn_맥도날드.png);
 }
 
 
@@ -118,7 +236,7 @@ body {
 
 /*메가커피 키오스크*/
 .kiosk_simulation {
-    display:flex;
+    display:none;
     justify-content: center;
     margin: 0;
 }
@@ -143,7 +261,7 @@ body {
 #mega_start_img { /*처음 시작 화면*/
     width: 100%;
     height: 100%;
-    background: url(./img/mega_start_img.jpg) no-repeat center / cover;
+    background: url(img/mega_start_img.jpg) no-repeat center / cover;
     border-radius: 15px;
 }
 
@@ -160,7 +278,7 @@ body {
 
 /*상단부분*/
 #top_bar {
-    background: #ef4444;
+    background: rgb(175, 174, 174);
     width: 100%;
     height: 4vh;
 
@@ -173,7 +291,7 @@ body {
 #mega_top_bar_home {
     width: 30px;
     height: auto;
-    background: url(./img/mega_top_bar_home.png) no-repeat center / cover;
+    background: url(img/mega_top_bar_home.png) no-repeat center / cover;
 
 }
 #mega_top_bar_name {
@@ -182,12 +300,12 @@ body {
 #mega_top_bar_lang {
     width: 60px;
     height: 30px;
-    background: url(./img/mega_top_bar_lang.png);
+    background: url(img/mega_top_bar_lang.png);
 }
 
 /*메뉴바 부분*/
 #mega_menu_bar  {
-    background: #ef4444;
+    background: rgb(175, 174, 174);
     color: white;
     padding-top: 7px;
     padding-bottom: 5px;
@@ -215,19 +333,19 @@ body {
 
 #row {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     
     width: 97%;
    
-    padding-top: 5px;
+    padding-top: 20px;
     padding-left: 5px;
     padding-right: 5px;
     
 }
 
 #row div {
-    width: 23%;
-    height: 13vh;
+    width: 40%;
+    height: 17vh;
 
 }
 
@@ -324,7 +442,7 @@ body {
 #delete_all {
     width: 45px;
     height: 45px;
-    background: url(./img/mege_delete_all.png) no-repeat center / cover;
+    background: url(img/mege_delete_all.png) no-repeat center / cover;
 }
 #item_number {
     width: 100%;
@@ -336,7 +454,7 @@ body {
 #pay_btn {
     width: 100%;
     height: 50%;
-    background: #ef4444;
+    background: rgb(175, 174, 174);
     border-radius: 8px;
     display: flex;
     color: white;
@@ -348,7 +466,7 @@ body {
 #card_img {
     width: 40px;
     height: 40px;
-    background: url(./img/mega_card_img.png) no-repeat center / cover;
+    background: url(img/mega_card_img.png) no-repeat center / cover;
 }
 
 
@@ -405,14 +523,14 @@ body {
     margin-left: 18%;
     width: 30px;
     height: 18px;
-    background: url(./img/barcode_img.png) no-repeat center / cover;
+    background: url(img/barcode_img.png) no-repeat center / cover;
 
 }
 #barcode_png {
     margin-top: 4%;
     width: 90px;
     height: 54px;
-    background: url(./img/barcode.png) no-repeat center / cover;
+    background: url(img/barcode.png) no-repeat center / cover;
 }
 #insert_card {
     margin-top: 3%;
@@ -457,7 +575,7 @@ body {
 #receipt_img {
     width: 30px;
     height: 30px;
-    background: url(./img/receipt.png)no-repeat center / cover;
+    background: url(img/receipt.png)no-repeat center / cover;
 }
 #insert_card_moving {
     position:relative;
@@ -466,7 +584,7 @@ body {
     left: 60%;
     width: 30%;
     height: 20%;
-    background: url(./img/card_insert_moving.png) no-repeat center / cover;
+    background: url(img/card_insert_moving.png) no-repeat center / cover;
 }
 
 
@@ -658,7 +776,7 @@ body {
 #insert_card_w {
     width: 270px;
     height: 120px;
-    background: url(./img/insert_card_w.png) no-repeat center/cover;
+    background: url(img/insert_card_w.png) no-repeat center/cover;
 }
 #w_list {
     width: 80%;
@@ -772,15 +890,5 @@ body {
 
 
 .author {
-    font-size: 11px;
-    color: #D0CECE;
-}
-
-
-/*도움말*/
-#inform {
-    padding-top: 30px;
-    
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 10px;
 }
