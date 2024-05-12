@@ -1,60 +1,88 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Main.css';
-import { Link } from 'react-router-dom';
-import logoImage from './mAIt.png';
 
+export default function MainContent() {
+  const [news, setNews] = useState([]);
+  const [recommended, setRecommended] = useState(null);
+  const [clicks, setClicks] = useState({정치: 0, 경제: 0, 사회: 0, 문화: 0});
+  const categoryNames = ["정치", "경제", "사회", "문화"];
+  const categoryMap = { '정치': 'poli', '경제': 'econo', '사회': 'soci', '문화': 'cul' };
 
+  useEffect(() => {
+    const fetchNews = async () => {
+      const res = await axios.get('http://localhost:50/get_news');
+      if (res.status === 200) {
+        setNews(res.data.news);
+        setRecommended(res.data.recommended);
+      } else {
+        console.error('Failed to fetch news:', res.status);
+      }
+    };
 
-export default function MainContentt() {
-    return (
-      <div className="main_cons">
-        <img
-              src={logoImage}
-              className="mlogo"
-              alt="MLogo"
-            />
-        <div className="main-word">
-          : 디지털 리터러시 능력 향상을 위한 친구, <br/>
-          <span>mAIt</span>와 함께 성장하세요
+    fetchNews();
+    const intervalId = setInterval(fetchNews, 10000);  // 10초마다 뉴스 업데이트
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const updateClicks = async (category) => {
+    const categoryKey = categoryMap[category];
+    await axios.post(`http://localhost:50/update_clicks/${categoryKey}`);
+  };
+
+  const handleNewsClick = (category, url) => {
+    updateClicks(category);
+    const newClicks = {...clicks, [category]: clicks[category] + 1};
+    setClicks(newClicks);
+    window.open(url, '_blank');
+  };
+
+  return (
+    <div className="main_cons">
+      <img src={require('./mAIt.png')} className="mlogo" alt="MLogo"/>
+      <div className="main-word">
+        : 디지털 리터러시 능력 향상을 위한 친구, <br/>
+        <span>mAIt</span>와 함께 성장하세요
+      </div>
+      <div className="contents">
+        <div className="mcon">
+          <a href="/Pages/Kiosk" className="mcon1 main-button" rel="noopener noreferrer">
+            키오스크<br/>체험하기
+          </a>
+          <a href="/Pages/Generator" className="mcon1 main-button" rel="noopener noreferrer">
+            이미지<br/>변환하기
+          </a>
         </div>
-
-        <div className="contents">
-            <div className="mcon">
-              <Link to="/Pages/Kiosk" className="mcon1">
-                <div className="main-button">
-                  키오스크<br/>체험하기
-                </div>
-              </Link>
-
-              <Link to="/Pages/Generator" className="mcon1">
-                <div className="main-button">
-                  이미지<br/>변환하기
-                </div>
-              </Link>
+        <div className="news">
+          <div className="news-title">맞춤형 뉴스🗞️</div>
+          <div className="news-description">
+            오늘은 어떤 소식이 있을까요?
+          </div>
+          <div className="divider" />
+          <div className='news-inner'>
+            {news.map((item, index) => (
+              <a href={item.link} key={index} className="button" target="_blank" rel="noopener noreferrer" onClick={(e) => {
+                e.preventDefault();  // <a> 태그의 기본 동작을 방지
+                e.stopPropagation();  // 이벤트 전파를 방지
+                handleNewsClick(categoryNames[index % 4], item.link);
+              }}>
+                {categoryNames[index % 4]}: {item.title}
+              </a>
+            ))}
           </div>
 
-
-            <div className="news">
-              <div className="news-title">맞춤형 뉴스🗞️</div>
-              <div className="news-description">
-                오늘은 어떤 소식이 있을까요?
+          <div className='recommended-news'>
+            {recommended && (
+              <div>
+                <h2>추천 뉴스</h2>
+                <a href={recommended.link} target="_blank" rel="noopener noreferrer">
+                  {recommended.title}
+                </a>
               </div>
-              <div className="divider" />
-              <div className='news-inner'>
-                <Link to="/pages/news" className="newss">
-                  <div className="button">
-                    1. 오늘은 우선 이런 소식이 있어요.
-                  </div>
-                </Link>
-                <br/>
-                <Link to="/pages/news" className="newss">
-                  <div className="button">
-                    2. 그리고 이런 소식도 있어요.
-                  </div>
-                </Link>
-              </div>
-            </div>
+            )}
+          </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Generator.css';
 import { useNavigate } from 'react-router-dom'
 
@@ -7,6 +7,7 @@ export default function Generator() {
   const [concept, setConcept] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const [dots, setDots] = useState('.');
 
   const handleImageChange = (event) => {
     const selectedImage = event.target.files[0];
@@ -45,11 +46,28 @@ export default function Generator() {
     }
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots(prevDots => {
+        switch (prevDots) {
+          case '.':
+            return '..';
+          case '..':
+            return '...';
+          default:
+            return '.';
+        }
+      });
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="containers">
       {isLoading && (
         <div className="loading-modal">
-          <div className="loading-text">이미지를 변환중이에요! 잠시만 기다려주세요.</div>
+          <div className="loading-text">이미지를 변환중이에요! 잠시만 기다려주세요{dots}</div>
         </div>
       )}
       <div className="image-1">이미지 변환하기 :2 사진을 다양한 그림으로 바꿔봐요!</div>
@@ -89,7 +107,7 @@ export default function Generator() {
           <div className="button" onClick={handleSubmit}>
             바꾸기!
           </div>
-      </div>ㄴ
+      </div>
     </div>
   );
 }

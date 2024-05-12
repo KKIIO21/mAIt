@@ -1,6 +1,6 @@
 import React from 'react';
 import './Kiosk.css';
-import './learn.css';
+//import './learn.css';
 import { Link } from 'react-router-dom';
 
 

@@ -1,83 +1,125 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './ChatBot.css';
 
 const ChatBot = () => {
+    const [chatId, setChatId] = useState(''); // 대화 id를 저장할 상태입니다.
     const [selectedVoice, setSelectedVoice] = useState(null);
     const [chatHistory, setChatHistory] = useState([]);
-  
-    const handleVoiceSelection = (voice) => {
-      setSelectedVoice(voice);
-    };
     const [message, setMessage] = useState('');
 
-    const sendMessage = () => {
-        submitMessage();
+    // 컴포넌트 마운트 시 한 번만 실행되어 대화 id를 생성합니다.
+    useEffect(() => {
+        const id = uuidv4(); // uuid 라이브러리를 사용해 고유한 id를 생성합니다.
+        setChatId(id); // 생성된 id를 상태에 저장합니다.
+    }, []);
+
+    const handleVoiceSelection = (voice) => {
+        setSelectedVoice(voice);
     };
 
-    const submitMessage = () => {
-        const newMessage = {
-            content: message,
+    const sendMessage = (text = message) => {
+        const userMessage = {
+            content: text,
             timestamp: new Date().toLocaleTimeString(),
+            sender: 'user',
         };
-        setChatHistory([...chatHistory, newMessage]);
-        setMessage(''); // 입력 필드 초기화
+        setChatHistory(chatHistory => [...chatHistory, userMessage]);
+
+        // 메시지와 함께 대화 id를 서버에 보내기
+        fetch('http://localhost:50/message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text: text, chatId: chatId }),
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            console.log('Success:', data);
+            const serverResponse = {
+                content: data.r_text,
+                timestamp: new Date().toLocaleTimeString(),
+                sender: 'server',
+            };
+            setChatHistory(chatHistory => [...chatHistory, serverResponse]);
+            
+            const audioPath = `http://localhost:50/message/${chatId}_${data.timestamp}`;
+            playAudio(audioPath);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+        setMessage('');
     };
-    
+
+    // voice2text
+    const recordAudio = () => {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        
+        recognition.lang = 'ko-KR';
+        recognition.start();
+        
+        recognition.onresult = (event) => {
+            const speechToText = event.results[0][0].transcript;
+            sendMessage(speechToText);
+        };
+    };
+
+    // 오디오 파일 재생 함수
+    const playAudio = (path) => {
+        const audio = new Audio(path);
+        audio.play().catch(error => console.error('Audio play error:', error));
+    };
 
     
-
     return (
-        <div class="chat-container">
-            <div class="chat">
-                <div class="new-chat">
-                    <button > + 새로운 채팅</button>
+        <div className="chat-container">
+            <div className="chat">
+                <div className="new-chat">
+                    <button> + 새로운 채팅</button>
                 </div>
-                <div class="voice-choice">
-                    <div class="voice-explain"><span class="highlight">"목소리"</span>를 선택해보세요</div>
+                <div className="voice-choice">
+                    <div className="voice-explain"><span className="highlight">"목소리"</span>를 선택해보세요</div>
                     <button onClick={() => handleVoiceSelection('grandfather')}>할아버지</button>
-                    <button onClick={() => handleVoiceSelection('grandson')}>할머니</button>
-                    <button onClick={() => handleVoiceSelection('woman')}>여자</button>
-                    <button onClick={() => handleVoiceSelection('man')}>남자</button>
-                    <button onClick={() => handleVoiceSelection('wkid')}>여자 아이</button>
-                    <button onClick={() => handleVoiceSelection('mkid')}>남자 아이</button>
                 </div>
-                <div class="ch-divider"></div>
+                <div className="ch-divider"></div>
                 <div className='ex-explain'>이전 채팅 목록</div>
 
-                <div class="last-chat">
-                    <button >이전 목록 1</button>
-                    <button >이전 목록 2</button>
-                    <button >이전 목록 3</button>
-                    <button >이전 목록 4</button>
-                    <button >이전 목록 5</button>
-                    <button >이전 목록 6</button>
-                    
-
+                <div className="last-chat">
+                    <button>이전 목록 1</button>
                 </div>
            
             </div>
-            <div class="chat-space">
+            <div className="chat-space">
                 <div className='ex-explain'>메이트에게 뭐든 물어보세요</div>
                 
                 <div className="chat-list">
                     {chatHistory.map((msg, index) => (
-                        <div key={index} className={`message ${msg.sent ? 'message-sent' : 'message-received'}`}>
-                        <div>{msg.content}</div>
+                        <div key={index} className={`message ${msg.sender === 'user' ? 'message-sent' : 'message-received'}`}>
+                            <div>{msg.content}</div>
                         </div>
                     ))}
                 </div>
                 <form className="chat-inputing" onSubmit={(e) => {e.preventDefault(); sendMessage(); }}>
-                <input
-                    type="text"
-                    className="chat-input"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-                <button type="submit" disabled={!message}>전송</button>
+                    <input
+                        type="text"
+                        className="chat-input"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                    />
+                    <button type="submit" disabled={!message}>전송</button>
+                    <button type="button" onClick={recordAudio}>마이크</button>
                 </form>
-                
             </div>
         </div>
     );
-  }
-  export default ChatBot;
+}
+export default ChatBot;

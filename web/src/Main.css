@@ -1,134 +1,134 @@
 .main_cons {
-    margin-top: 3.5vw;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    padding-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+  margin-top: 3.5vw;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
 .mlogo {
-    width: 20vw;
-    height: auto;
-    margin: auto;
-    display: block;
-    filter: drop-shadow(3px 3px 2px rgb(194, 194, 194));
+  width: 20vw;
+  height: auto;
+  margin: auto;
+  display: block;
+  filter: drop-shadow(3px 3px 2px rgb(194, 194, 194));
 }
 
 .main-word {
-    margin-top: 20px;
-    margin-left: 70px;
-    font: 200 2.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
-    color: #000000;
-    line-height: 1.5;
-  }
+  margin-top: 20px;
+  margin-left: 70px;
+  font: 200 2.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  color: #000000;
+  line-height: 1.5;
+}
 
-  .main-word span{
-    font: 440 3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
-    color: #001B62; 
-  }
-
-
-
-  .contents {
-    margin-top: 2vw;
-    display: flex;
-    justify-content: center;
-    gap : 1vw;
-  }
+.main-word span{
+  font: 440 3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  color: #001B62; 
+}
 
 
-  .mcon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2vw;
-    text-decoration: none;
-    text-align: center;
-    margin-right: 1vw;
-  }
 
-  .mcon1 {
-    text-decoration: none; 
-    font: 440 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
-    color: #000000;
-  }  
-  
-  .divider {
-    background-color: #9b9b9b;
-    height: 1px;
-    margin-top: 28px;
-    width: 80%;
-  }
-  
-  .mcon .main-button {
-    border: none;
-    background-color: #ffffff;
-    color: #001B62; 
-    cursor: pointer; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 17vw;
-    height: 22vh;
-    transition: background-color 0s; 
-    border-radius: 40px;
-    text-decoration: none;
-    line-height: 1.5;
-    filter: drop-shadow(0px 3px 2px rgb(181, 181, 181));
-  }
-  
-  .mcon .main-button:hover {
-    background-color: #001B62; 
-    color: #ffffff;
+.contents {
+  margin-top: 2vw;
+  display: flex;
+  justify-content: center;
+  gap : 1vw;
+}
 
-  }
-  
-  .news {
-    border: 1px solid rgb(210, 210, 210);
-    width: 30vw;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 40px;
-    display: flex;
-    margin-left: 0px;
-  }
-  
-  .news-title {
-    font: 440 3.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
-    color: #000000;
-  }
-  
-  .news-description {
-    margin-top: 20px;
-    font: 200 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
-  }
-  
-  .news-inner {
-    line-height: 3;
-    margin-top: 30px;
-    text-decoration: none; 
-    font: 100 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
-  }
-  
-  .news-inner .button {
-    background-color: #bdbdbd00;
-    color: #001B62; 
-    border: none; 
-    padding: 10px; 
-    font-size: 16px;
-    cursor: pointer; 
-    transition: background-color 0s; 
-    border-radius: 20px; 
-    text-decoration: none; 
-    display: inline-block;
-  }
-  
-  .news-inner .button:hover {
-    background-color: #001B62;
-    color: #ffffff;
-  }
+
+.mcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  text-decoration: none;
+  text-align: center;
+  margin-right: 1vw;
+}
+
+.mcon1 {
+  text-decoration: none; 
+  font: 440 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  color: #000000;
+}  
+
+.divider {
+  background-color: #9b9b9b;
+  height: 1px;
+  margin-top: 28px;
+  width: 80%;
+}
+
+.mcon .main-button {
+  border: none;
+  background-color: #ffffff;
+  color: #001B62; 
+  cursor: pointer; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17vw;
+  height: 22vh;
+  transition: background-color 0s; 
+  border-radius: 40px;
+  text-decoration: none;
+  line-height: 1.5;
+  filter: drop-shadow(0px 3px 2px rgb(181, 181, 181));
+}
+
+.mcon .main-button:hover {
+  background-color: #001B62; 
+  color: #ffffff;
+
+}
+
+.news {
+  border: 1px solid rgb(210, 210, 210);
+  width: 30vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  display: flex;
+  margin-left: 0px;
+}
+
+.news-title {
+  font: 220 2vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  color: #000000;
+}
+
+.news-description {
+  margin-top: 20px;
+  font: 400 0.9vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.news-inner {
+  line-height: 3;
+  margin-top: 30px;
+  text-decoration: none; 
+  font: 100 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.news-inner .button {
+  background-color: #bdbdbd00;
+  color: #001B62; 
+  border: none; 
+  padding: 10px; 
+  font-size: 16px;
+  cursor: pointer; 
+  transition: background-color 0s; 
+  border-radius: 20px; 
+  text-decoration: none; 
+  display: inline-block;
+}
+
+.news-inner .button:hover {
+  background-color: #001B62;
+  color: #ffffff;
+}
