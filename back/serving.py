@@ -9,6 +9,7 @@ from flask import Flask, request, jsonify, send_from_directory
 from diffusers import StableDiffusionInstructPix2PixPipeline, EulerAncestralDiscreteScheduler
 from flask_cors import CORS
 from gtts import gTTS
+from concurrent.futures import ThreadPoolExecutor
 
 app = Flask(__name__)
 CORS(app)
@@ -24,6 +25,8 @@ UPLOAD_FOLDER = 'image_upload'
 RESULT_FOLDER = 'image_result'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['RESULT_FOLDER'] = RESULT_FOLDER
+
+executor = ThreadPoolExecutor(max_workers=4)  # 병렬 처리용 스레드 풀
 
 def load_image(file_path):
     image = PIL.Image.open(file_path)
@@ -52,25 +55,28 @@ prompts = {
 def result_file(filename):
     return send_from_directory(app.config['RESULT_FOLDER'], filename)
 
+def process_image(file_path, prompt):
+    image = load_image(file_path)
+    images = pipe(prompt, image=image, num_inference_steps=8, image_guidance_scale=1.5).images
+    result_image = images[0]
+    result_image_path = save_image(result_image, 'RESULT_FOLDER')
+    return result_image_path
+
 @app.route('/ImageConversion', methods=['POST'])
 def convert_image():
     try:
         file = request.files['file']
         prompt = request.form['prompt']
 
-        prompt = prompts.get(prompt, "make the person younger") # defaults to "make the person younger"
+        prompt = prompts.get(prompt, "make the person younger")  # defaults to "make the person younger"
 
         # Save uploaded images temporarily
-        uploaded_image_path = save_image(load_image(file), 'UPLOAD_FOLDER', quality=50) # defaults Default downgrade to 50% quality
+        uploaded_image_path = save_image(load_image(file), 'UPLOAD_FOLDER', quality=50)  # defaults Default downgrade to 50% quality
         app.logger.info(f"Uploaded file saved to: {uploaded_image_path}")
 
-        # Load the image and perform the conversion
-        image = load_image(file)
-        images = pipe(prompt, image=image, num_inference_steps=8, image_guidance_scale=1.5).images
-        result_image = images[0]
-
-        # Save the resulting image
-        result_image_path = save_image(result_image, 'RESULT_FOLDER')
+        # Process the image asynchronously
+        future = executor.submit(process_image, uploaded_image_path, prompt)
+        result_image_path = future.result()
 
         # Generate URL for the resulting image
         result_image_url = request.url_root + 'image_result/' + os.path.basename(result_image_path)
@@ -78,10 +84,10 @@ def convert_image():
         return jsonify({'result': 'success', 'image_url': result_image_url})
     except Exception as e:
         return jsonify({'result': 'error', 'message': str(e)})
-    
+
 #############################################################################################################
 # News #
-    
+
 clicks = {'poli': 0, 'econo': 0, 'soci': 0, 'cul': 0}
 
 def load_json_data(file_name):
@@ -124,10 +130,10 @@ def message():
     data = request.json
     text = data.get('text')
     chatId = data.get('chatId')
-    
+
     if not text:
         return jsonify({'error': 'No text provided'}), 400
-    
+
     # api 비밀키 로드
     try:
         with open('./key.txt', 'r') as file:
@@ -140,7 +146,7 @@ def message():
     title = text.split()[0]
     folder = f'./chatbot_result/{chatId}'
     txt = f'./chatbot_result/{chatId}/{chatId}.txt'
-    
+
     # 폴더 생성, 입력 추가
     if not os.path.exists(folder):
         os.makedirs(folder)
@@ -163,7 +169,7 @@ def message():
         + existing_conversations
         + [{"role": "user", "content": text + "이전 대화를 참고해서 답변해"}]
     )
-    
+
     try:
         response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -172,16 +178,15 @@ def message():
     except Exception as e:
         return jsonify({'error': f'OpenAI API 호출 중 오류 발생: {str(e)}'}), 500
 
-
     r_text = response['choices'][0]['message']['content']
-    
+
     # 답변 추가
     try:
         with open(txt, 'a', encoding='utf-8') as file:
             file.write("출력: " + r_text + '\n')
     except FileNotFoundError:
         print(f"파일을 찾을 수 없습니다.")
-    
+
     # 답변 반환
     timestamp = text2voice(r_text, chatId)
     if timestamp:
@@ -199,7 +204,7 @@ def serve_mp3(url):
         return send_from_directory(directory, filename, as_attachment=True)
     except FileNotFoundError:
         return jsonify({'error': 'File not found'}), 404
-    
+
 #############################################################################################################
 
 if __name__ == '__main__':
