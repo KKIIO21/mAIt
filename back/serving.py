@@ -9,7 +9,6 @@ from flask import Flask, request, jsonify, send_from_directory
 from diffusers import StableDiffusionInstructPix2PixPipeline, EulerAncestralDiscreteScheduler
 from flask_cors import CORS
 from gtts import gTTS
-from concurrent.futures import ThreadPoolExecutor
 
 app = Flask(__name__)
 CORS(app)
@@ -25,8 +24,6 @@ UPLOAD_FOLDER = 'image_upload'
 RESULT_FOLDER = 'image_result'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['RESULT_FOLDER'] = RESULT_FOLDER
-
-executor = ThreadPoolExecutor(max_workers=4)  # 병렬 처리용 스레드 풀
 
 def load_image(file_path):
     image = PIL.Image.open(file_path)
@@ -74,9 +71,8 @@ def convert_image():
         uploaded_image_path = save_image(load_image(file), 'UPLOAD_FOLDER', quality=50)  # defaults Default downgrade to 50% quality
         app.logger.info(f"Uploaded file saved to: {uploaded_image_path}")
 
-        # Process the image asynchronously
-        future = executor.submit(process_image, uploaded_image_path, prompt)
-        result_image_path = future.result()
+        # Process the image synchronously
+        result_image_path = process_image(uploaded_image_path, prompt)
 
         # Generate URL for the resulting image
         result_image_url = request.url_root + 'image_result/' + os.path.basename(result_image_path)
@@ -158,9 +154,9 @@ def message():
     existing_conversations = []
     for line in lines:
         # 입력과 출력을 구분하여 existing_conversations에 추가
-        if line.startswith("입력: "):
+        if (line.startswith("입력: ")):
             existing_conversations.append({"role": "user", "content": line.strip().replace("입력: ", "")})
-        elif line.startswith("출력: "):
+        elif (line.startswith("출력: ")):
             existing_conversations.append({"role": "assistant", "content": line.strip().replace("출력: ", "")})
 
     # gpt 초기 설정
@@ -172,8 +168,8 @@ def message():
 
     try:
         response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=conversation
+            model="gpt-3.5-turbo",
+            messages=conversation
         )
     except Exception as e:
         return jsonify({'error': f'OpenAI API 호출 중 오류 발생: {str(e)}'}), 500
