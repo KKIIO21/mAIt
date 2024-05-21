@@ -37,6 +37,13 @@ export default function MainContent() {
     window.open(url, '_blank');
   };
 
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.slice(0, maxLength) + '...';
+    }
+    return text;
+  };
+
   return (
     <div className="main_cons">
       <img src={require('./mAIt.png')} className="mlogo" alt="MLogo"/>
@@ -66,17 +73,16 @@ export default function MainContent() {
                 e.stopPropagation();  // 이벤트 전파를 방지
                 handleNewsClick(categoryNames[index % 4], item.link);
               }}>
-                {categoryNames[index % 4]}: {item.title}
+                {categoryNames[index % 4]}: {truncateText(item.title, 30)}
               </a>
             ))}
           </div>
-
           <div className='recommended-news'>
             {recommended && (
               <div>
                 <h2>추천 뉴스</h2>
-                <a href={recommended.link} target="_blank" rel="noopener noreferrer">
-                  {recommended.title}
+                <a href={recommended.link} className="button" target="_blank" rel="noopener noreferrer">
+                  {truncateText(recommended.title, 30)}
                 </a>
               </div>
             )}
