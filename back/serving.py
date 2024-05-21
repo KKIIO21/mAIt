@@ -31,6 +31,16 @@ def load_image(file_path):
     image = image.convert("RGB")
     return image
 
+def resize_image(image, max_width=300):
+    # 현재 이미지의 크기
+    width, height = image.size
+    # 새 너비를 기준으로 높이를 비율에 맞게 조정
+    ratio = max_width / float(width)
+    new_height = int(ratio * float(height))
+    # 이미지 리사이즈
+    image = image.resize((max_width, new_height), PIL.Image.LANCZOS)
+    return image
+
 def save_image(image, folder, quality=None):
     unique_filename = str(uuid.uuid4()) + '.jpg'
     file_path = os.path.join(app.config[folder], unique_filename)
@@ -54,6 +64,7 @@ def result_file(filename):
 
 def process_image(file_path, prompt):
     image = load_image(file_path)
+    image = resize_image(image)  # 이미지 리사이즈 추가
     images = pipe(prompt, image=image, num_inference_steps=8, image_guidance_scale=1.5).images
     result_image = images[0]
     result_image_path = save_image(result_image, 'RESULT_FOLDER')
@@ -68,7 +79,7 @@ def convert_image():
         prompt = prompts.get(prompt, "make the person younger")  # defaults to "make the person younger"
 
         # Save uploaded images temporarily
-        uploaded_image_path = save_image(load_image(file), 'UPLOAD_FOLDER', quality=50)  # defaults Default downgrade to 50% quality
+        uploaded_image_path = save_image(resize_image(load_image(file)), 'UPLOAD_FOLDER', quality=50)  # 이미지 리사이즈 및 품질을 50%로 저장
         app.logger.info(f"Uploaded file saved to: {uploaded_image_path}")
 
         # Process the image synchronously
