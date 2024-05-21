@@ -1,8 +1,7 @@
 import React from 'react';
 import './Kiosk.css';
-//import './learn.css';
+import './learn.css';
 import { Link } from 'react-router-dom';
-
 
 
 
@@ -17,7 +16,6 @@ export default function Kiosk() {
 
         <div className="menu wrapper">
             <div className="menus container" id="menubtn">
-            {/* React에서는 a 태그를 사용할 수 있지만, SPA를 위해서는 React Router의 Link 컴포넌트를 권장합니다. */}
               <Link to="/Pages/Kiosk/FirstTime" className="mcon1">
                   <div className="main-button">
                     키오스크가 처음이라면
