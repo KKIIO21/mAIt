@@ -1,0 +1,27 @@
+.container {
+    display: inline-grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap : 0;
+    place-items: center;
+    padding-left : 275px;
+}
+
+.container .item {
+    width : 370px;
+    height : 225px;
+    border : 1px solid black;
+    margin : 0;
+    line-height: 225px;
+    font-size : 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color : black;
+    border: 1px solid black;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}

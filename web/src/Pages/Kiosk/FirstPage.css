@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'JalnanGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.Icon{
+    margin-top: 3vh;
+    cursor: pointer;
+    height: 10vh;
+    width: auto;
+}
+
+
+.first_page_container {
+    text-align: center;
+    background-image: url(./img/firstPage1.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 40vw;
+    height: 100vh;
+}
+
+.erica_burger {
+    font: 600 4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    color: #ffffff; 
+}
+
+.button_container {
+    margin-top: 40px;
+    
+}
+
+.order_button {
+    font: 500 3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    color: #ffffff;
+    line-height: 200%;
+    padding: 1.5vw;
+    margin: 1vw 1vw;
+    background-color: #004B86;
+    border: none;
+    border-radius: 1.5vw;
+    cursor: pointer;    
+}
+
+
+.order_button_takeout {
+    font: 500 3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    color: #ffffff;
+    line-height: 200%;
+    padding: 1.5vw;
+    margin: 1vw 1vw;
+    background-color: #004B86;
+    border: none;
+    border-radius: 1.5vw;
+    cursor: pointer;    
+}
+
+
+
+.order_button:hover {
+    background-color: #81C7FF; 
+}
+
+
+.order_button_takeout:hover {
+    background-color: #81C7FF; 
+}
+
+.eathere {
+    min-width: 15px;
+    min-height: 15px;
+    width: 12vmin;
+    height: 12vmin;
+}
+
+.takeout {
+    min-width: 10px;
+    min-height: 10px;
+    width: 12vmin;
+    height: 12vmin;
+}
