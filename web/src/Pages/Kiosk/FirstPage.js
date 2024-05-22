@@ -36,7 +36,7 @@ function FirstPage() {
         <div className="background">
         <div className="first_page_container">
             <img className="Icon" alt="logo" src={logo} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}></img>
-            <h1 className="erica_burger">메이트 버거</h1>
+            <div className="mait_burger">메이트 버거</div>
             <div className="button_container">
                 <button className="order_button" onClick={movePage}><img className="eathere" src={eathere}></img><br />매장 주문</button>
                 <button className="order_button_takeout" onClick={movePage}> <img className="takeout" src={takeout}></img><br />포장 주문</button>

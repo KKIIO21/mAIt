@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./SecondPage.css"; // CSS 스타일을 적용하기 위해 임포트합니다.
+import "./SecondPage.css"; // CSS 스타일을 적용하기 위해 임포트합니다.
 import {useNavigate} from "react-router-dom"//뒤로가기 기능 구현용
 import ShoppingBag from "./ShoppingBag"; // ShoppingBag 컴포넌트를 임포트합니다.
 import whopper from './img/guinness_whopper.jpg';
@@ -58,11 +58,15 @@ export function SecondPage() {
     ));
 
     return (
-        <div>
-            <header>
-                <button onClick={()=> navigate(-1)} style={{width:'100px', height:'100px'}}><img src= {back} style={{width:'60px', height:'60px'}}></img></button>
+        <div className="container">
+            <header className="kheader">
+                <button onClick={()=> navigate(-1)} style={{width:'100px', height:'100px'}}>
+                    <img src={back} style={{width:'60px', height:'60px'}} alt="뒤로가기"></img>
+                </button>
             </header>
-            <ul>{menuItems}</ul>
+            <ul className="menu-list">
+                {menuItems}
+            </ul>
             <ShoppingBag items={menuCounts.filter(menuItem => menuItem.count > 0)} onCountChange={handleCountChange} totalprice={totalprice} />
         </div>
     );

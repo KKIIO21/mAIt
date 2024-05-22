@@ -83,20 +83,10 @@ const ChatBot = () => {
     return (
         <div className="chat-container">
             <div className="chat">
-                <div className="new-chat">
-                    <button> + 새로운 채팅</button>
-                </div>
                 <div className="voice-choice">
                     <div className="voice-explain"><span className="highlight">"목소리"</span>를 선택해보세요</div>
                     <button onClick={() => handleVoiceSelection('grandfather')}>할아버지</button>
                 </div>
-                <div className="ch-divider"></div>
-                <div className='ex-explain'>이전 채팅 목록</div>
-
-                <div className="last-chat">
-                    <button>이전 목록 1</button>
-                </div>
-           
             </div>
             <div className="chat-space">
                 <div className='ex-explain'>메이트에게 뭐든 물어보세요</div>

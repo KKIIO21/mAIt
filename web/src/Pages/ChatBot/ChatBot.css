@@ -172,6 +172,7 @@
   color: #ffffff;
 }
 .message {
+  font-size: 2rem;;
   background-color: #f1f0f0; /* 말풍선 배경색 */
   border-radius: 10px; /* 모서리 둥글게 */
   padding: 10px 15px; /* 내부 여백 */

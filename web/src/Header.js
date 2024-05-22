@@ -26,11 +26,15 @@ function Header() {
         <Link to="/AboutUs" className="nav-item">
           <button>메이트 알아보기</button>
         </Link>
-        <Link to="/pages/kiosk" className="nav-item2">
-          <button>사용 설명서</button>
+        <Link to="/Pages/Kiosk" className="nav-item2">
+          <button>키오스크</button>
         </Link>
 
-        <Link to="/pages/ChatBot" className='chatbot'>
+        <Link to="/Pages/Generator" className="nav-item2">
+          <button>이미지 변환</button>
+        </Link>
+
+        <Link to="/Pages/ChatBot" className='chatbot'>
           <button>
             챗봇
             <img
