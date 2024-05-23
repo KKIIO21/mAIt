@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-
+import axios from 'axios';
 import './Main.css';
 
 export default function MainContent() {
-  {/* 
   const [news, setNews] = useState([]);
   const [recommended, setRecommended] = useState(null);
   const [clicks, setClicks] = useState({정치: 0, 경제: 0, 사회: 0, 문화: 0});
@@ -39,7 +37,12 @@ export default function MainContent() {
     window.open(url, '_blank');
   };
 
-  */}
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.slice(0, maxLength) + '...';
+    }
+    return text;
+  };
 
   return (
     <div className="main_cons">
@@ -63,7 +66,6 @@ export default function MainContent() {
             오늘은 어떤 소식이 있을까요?
           </div>
           <div className="divider" />
-          {/*
           <div className='news-inner'>
             {news.map((item, index) => (
               <a href={item.link} key={index} className="button" target="_blank" rel="noopener noreferrer" onClick={(e) => {
@@ -71,22 +73,20 @@ export default function MainContent() {
                 e.stopPropagation();  // 이벤트 전파를 방지
                 handleNewsClick(categoryNames[index % 4], item.link);
               }}>
-                {categoryNames[index % 4]}: {item.title}
+                {categoryNames[index % 4]}: {truncateText(item.title, 32)}
               </a>
             ))}
           </div>
-
           <div className='recommended-news'>
             {recommended && (
               <div>
                 <h2>추천 뉴스</h2>
-                <a href={recommended.link} target="_blank" rel="noopener noreferrer">
-                  {recommended.title}
+                <a href={recommended.link} className="button" target="_blank" rel="noopener noreferrer">
+                  {truncateText(recommended.title, 32)}
                 </a>
               </div>
             )}
           </div>
-        */}
         </div>
       </div>
     </div>

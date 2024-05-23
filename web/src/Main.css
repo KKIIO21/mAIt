@@ -104,13 +104,13 @@
 }
 
 .news-description {
-  margin-top: 20px;
+  margin-top: 10px;
   font: 400 0.9vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
 .news-inner {
   line-height: 3;
-  margin-top: 30px;
+  margin-top: 10px;
   text-decoration: none; 
   font: 100 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
@@ -119,7 +119,7 @@
   background-color: #bdbdbd00;
   color: #001B62; 
   border: none; 
-  padding: 10px; 
+  padding: 1px; 
   font-size: 16px;
   cursor: pointer; 
   transition: background-color 0s; 
@@ -133,11 +133,20 @@
   color: #ffffff;
 }
 
+.recommended-news {
+  margin-top: 10px; /* 추천 뉴스와 이전 요소 간의 간격을 줄이기 위해 추가 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.recommended-news h2 {
+  margin-bottom: 30px; /* 추천 뉴스 제목과 뉴스 기사 간의 간격을 조정 */
+}
+
 .recommended-news .button{
   background-color: #bdbdbd00;
   color: #001B62; 
   border: none; 
-  padding: 10px; 
+  padding: 1px; 
   font-size: 16px;
   cursor: pointer; 
   transition: background-color 0s; 
