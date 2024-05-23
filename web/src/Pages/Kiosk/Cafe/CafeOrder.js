@@ -29,7 +29,7 @@ const menu = [
 export function CafeOrder() {
     const navigate = useNavigate();
     const [menuCounts, setMenuCounts] = useState(menu.map(menuItem => ({ ...menuItem, count: 0 })));
-    const [timeLeft, setTimeLeft] = useState(60);
+    const [timeLeft, setTimeLeft] = useState(60000000);
     const [selectedCategory, setSelectedCategory] = useState('시즌 메뉴');
     const [showModal, setShowModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
@@ -99,6 +99,10 @@ export function CafeOrder() {
         </li>
     ));
 
+    const handleOrderClick = () => {
+        navigate('../Pages/Kiosk/Cafe/Payment');
+    };
+
     return (
         <div className="background">
             <header className="kheader">
@@ -119,7 +123,7 @@ export function CafeOrder() {
                         <div className="time-head">남은시간</div> 
                         <div className="time-body"><span>{timeLeft}</span>초</div>
                     </div>
-                    <button className="checkout-button">결제하기</button>
+                    <button className="checkout-button" onClick={handleOrderClick}>결제하기</button>
                 </div>
             </div>
             {showModal && selectedItem && (
