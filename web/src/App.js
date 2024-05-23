@@ -14,6 +14,8 @@ import SecondPage from "./Pages/Kiosk/SecondPage.js";
 import ShoppingBag from "./Pages/Kiosk/ShoppingBag.js"; 
 import CompletePay from "./Pages/Kiosk/CompletePay.js";
 
+import CafeMain from "./Pages/Kiosk/Cafe/CafeMain.js";
+import CafeOrder from "./Pages/Kiosk/Cafe/CafeOrder.js";
 
 import './App.css';
 import MainContentt from './MainContents2.js';
@@ -40,10 +42,10 @@ function App() {
           <Route path="/Pages/Kiosk/SecondPage" element={<SecondPage/>}/>
           <Route path="/Pages/Kiosk/ShoppingBag" element={<ShoppingBag/>}/>
           <Route path="/Pages/Kiosk/PaymentChoice" element={<PaymentChoice/>}/>
-          <Route path="//Pages/Kiosk/CompletePay" element={<CompletePay/>}>
-          </Route>
-
-
+          <Route path="//Pages/Kiosk/CompletePay" element={<CompletePay/>}/>
+          
+          <Route path="/Pages/Kiosk/Cafe" element={<CafeMain/>}/>
+          <Route path="/Pages/Kiosk/Cafe/Order" element={<CafeOrder/>}/>
         </Routes>
       </div>
     </Router>

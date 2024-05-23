@@ -1,0 +1,46 @@
+.background {
+    user-select : none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 90vh;
+    width: 50vw;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.title {
+    margin-top: 10vh;
+    color: rgb(0, 0, 0);
+    font-size: 3rem;
+}
+
+.coffee-cup {
+    width: 200px;
+    height: auto;
+}
+
+.button_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.option_button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.option_button:hover {
+    background-color: #0056b3;
+}
