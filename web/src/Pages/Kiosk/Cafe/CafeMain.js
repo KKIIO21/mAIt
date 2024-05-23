@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./CafeMain.css";
-import coffeeCupImage from './img/cup.png';
+import coffeeCupImage from './img/coffee-cup.png';
 
 function CafeMain() {
     const navigate = useNavigate();

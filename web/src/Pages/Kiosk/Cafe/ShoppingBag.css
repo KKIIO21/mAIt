@@ -1,0 +1,39 @@
+.shopping-bag {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: auto;
+}
+
+.shopping-bag h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.shopping-bag ul {
+    list-style: none;
+    min-height: 140px;
+    padding: 0;
+}
+
+.shopping-bag li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.shopping-bag button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.total-price {
+    font-weight: bold;
+    margin-top: 20px;
+}
