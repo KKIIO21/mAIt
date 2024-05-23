@@ -6,9 +6,8 @@
 }
 
 .chat {
-  overflow-y: auto;
-  height: 100vh;;
-  width: 50%;
+  height: 100vh;
+  width: 60vh;
   background-color: #b5b5b5; 
   overflow-y: auto; /* 내용이 많을 경우 스크롤 */
 }
@@ -70,7 +69,7 @@
 }
 .ex-explain {
   color: #000000;
-  font: 440 20px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  font: 440 25px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
   text-align: left;
   margin-bottom: 10px;
   margin-top: 20px;
@@ -83,17 +82,17 @@
   width: 150%;
   background-color: #fff; 
   padding: 10px;
-  max-height: 500px; /* 채팅 박스의 최대 높이 설정 */
+  max-height: 700px; /* 채팅 박스의 최대 높이 설정 */
   overflow-y: auto; /* 스크롤바 추가 */
 }
 
 .chat-list {
     display: flex;
-    width: 45vw;
+    width: 60vw;
     flex-direction: column; /* 채팅 메시지를 역순으로 쌓기 */
     align-items:flex-end; /* 오른쪽 정렬 */
     padding: 20px;
-    height: 400px;
+    height: 600px;
     overflow-y: auto; /* 스크롤바 추가 */
     overflow-x: hidden;
   }
@@ -158,8 +157,8 @@
   color: #747474;
   border: none;
   border-radius: 15px;
-  padding: 10px 20px;
-  font: 200 23px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  padding: 30px 7px;
+  font: 300 23px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
@@ -172,22 +171,22 @@
   color: #ffffff;
 }
 .message {
-  font-size: 2rem;;
+  font-size: 1.5rem;;
   background-color: #f1f0f0; /* 말풍선 배경색 */
   border-radius: 10px; /* 모서리 둥글게 */
   padding: 10px 15px; /* 내부 여백 */
-  margin-bottom: 10px; /* 메시지 간 간격 */
-  max-width: 80%; /* 말풍선 최대 너비 */
+  margin-bottom: 20px; /* 메시지 간 간격 */
+  max-width: 60%; /* 말풍선 최대 너비 */
   word-wrap: break-word; /* 긴 텍스트 줄바꿈 */
 }
 .message-sent {
   align-self: flex-end; /* 보낸 메시지 오른쪽 정렬 */
-  background-color: #007bff; /* 보낸 메시지 배경색 */
+  background-color: #4b9ef7; /* 보낸 메시지 배경색 */
   color: white; /* 텍스트 색상 */
 }
 
 .message-received {
   align-self: flex-start; /* 받은 메시지 왼쪽 정렬 */
-  background-color: #65dbe6; /* 받은 메시지 배경색, 필요에 따라 조정 */
+  background-color: #d3d3d3; /* 받은 메시지 배경색, 필요에 따라 조정 */
   color: black; /* 텍스트 색상, 필요에 따라 조정 */
 }

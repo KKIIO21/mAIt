@@ -1,18 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './ChatBot.css';
+
+let audio = null; // 전역 변수로 Audio 객체 선언
 
 const ChatBot = () => {
     const [chatId, setChatId] = useState(''); // 대화 id를 저장할 상태입니다.
     const [selectedVoice, setSelectedVoice] = useState(null);
     const [chatHistory, setChatHistory] = useState([]);
     const [message, setMessage] = useState('');
+    const chatListRef = useRef(null); // chat-list에 대한 ref 생성
 
     // 컴포넌트 마운트 시 한 번만 실행되어 대화 id를 생성합니다.
     useEffect(() => {
         const id = uuidv4(); // uuid 라이브러리를 사용해 고유한 id를 생성합니다.
         setChatId(id); // 생성된 id를 상태에 저장합니다.
     }, []);
+
+    // chatHistory가 변경될 때마다 스크롤을 맨 아래로 내리는 useEffect 훅
+    useEffect(() => {
+        if (chatListRef.current) {
+            chatListRef.current.scrollTop = chatListRef.current.scrollHeight;
+        }
+    }, [chatHistory]);
 
     const handleVoiceSelection = (voice) => {
         setSelectedVoice(voice);
@@ -75,11 +85,21 @@ const ChatBot = () => {
 
     // 오디오 파일 재생 함수
     const playAudio = (path) => {
-        const audio = new Audio(path);
+        if (audio) {
+            audio.pause(); // 이전에 재생중이던 오디오 중단
+        }
+        audio = new Audio(path);
         audio.play().catch(error => console.error('Audio play error:', error));
     };
 
-    
+    // 오디오 중단 함수
+    const stopAudio = () => {
+        if (audio) {
+            audio.pause();
+            audio.currentTime = 0; // 오디오 재생 위치를 처음으로 돌림
+        }
+    };
+
     return (
         <div className="chat-container">
             <div className="chat">
@@ -91,7 +111,7 @@ const ChatBot = () => {
             <div className="chat-space">
                 <div className='ex-explain'>메이트에게 뭐든 물어보세요</div>
                 
-                <div className="chat-list">
+                <div className="chat-list" ref={chatListRef}>
                     {chatHistory.map((msg, index) => (
                         <div key={index} className={`message ${msg.sender === 'user' ? 'message-sent' : 'message-received'}`}>
                             <div>{msg.content}</div>
@@ -107,9 +127,11 @@ const ChatBot = () => {
                     />
                     <button type="submit" disabled={!message}>전송</button>
                     <button type="button" onClick={recordAudio}>마이크</button>
+                    <button type="button" onClick={stopAudio}>오디오 중지</button> {/* 오디오 중지 버튼 추가 */}
                 </form>
             </div>
         </div>
     );
 }
+
 export default ChatBot;
