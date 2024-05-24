@@ -103,6 +103,31 @@ export function CafeOrder() {
         navigate('../Pages/Kiosk/Cafe/Payment');
     };
 
+    // voice2text
+    const recordAudio = () => {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+        
+        recognition.lang = 'ko-KR';
+        recognition.start();
+        
+        recognition.onresult = (event) => {
+            const speechToText = event.results[0][0].transcript;
+            console.log("인식된 텍스트:", speechToText); // 디버깅을 위해 인식된 텍스트를 콘솔에 출력
+    
+            // 메뉴에서 인식된 텍스트와 일치하는 항목 찾기
+            const foundItem = menu.find(item => item.name === speechToText);
+            if (foundItem) {
+                // 찾은 항목을 장바구니에 추가하는 함수 호출
+                handleAddToCart(foundItem);
+            } else {
+                // 메뉴를 찾지 못한 경우의 처리
+                console.log("메뉴를 찾을 수 없습니다.");
+            }
+        };
+    };
+    
+
     return (
         <div className="background">
             <header className="kheader">
@@ -123,6 +148,7 @@ export function CafeOrder() {
                         <div className="time-head">남은시간</div> 
                         <div className="time-body"><span>{timeLeft}</span>초</div>
                     </div>
+                    <button type="button" onClick={recordAudio}>마이크</button>
                     <button className="checkout-button" onClick={handleOrderClick}>결제하기</button>
                 </div>
             </div>
