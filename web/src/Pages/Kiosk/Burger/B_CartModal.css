@@ -27,17 +27,14 @@
 }
 
 .item-name {
-    font-size: 20pt;
     margin: 30px 0;
 }
 
 .item-price {
-    font-size: 20pt;
     margin: 30px 0;
 }
 
 .size-option {
-    font-size: 15pt;
     margin: 30px 0;
 }
 
@@ -47,7 +44,6 @@
 }
 
 .modal-actions button {
-    font-size: 20pt;
     background-color: #ff6347;
     color: white;
     border: none;

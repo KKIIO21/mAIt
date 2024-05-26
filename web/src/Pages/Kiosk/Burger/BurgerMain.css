@@ -1,0 +1,89 @@
+.BurgerMain{
+    display: flex;
+    align-items: center;
+    height: 88vh;
+}
+
+.background {
+    user-select : none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+    width: 50vw;
+    background-color: rgb(255, 255, 255);
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+.Icon{
+    margin-top: 4vh;
+    cursor: pointer;
+    height: 5vh;
+    width: auto;
+}
+
+
+.first_page_container {
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.mait_burger {
+    margin-top : 5vh;
+    font: 600 3rem Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    color: #004B86; 
+}
+.mait_burger_script {
+    margin-top : 1vh;
+    font: 400 1.5rem Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    color: #004B86; 
+}
+
+.burger_image_main{
+    height: 50vh;
+    width: auto;
+}
+
+
+
+.order_button {
+    font: 550 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    color: #ffffff;
+    line-height: 150%;
+    padding: 1.5vw;
+    margin: 1vw 1vw;
+    background-color: #004B86;
+    border: none;
+    border-radius: 2vw;
+    cursor: pointer;    
+}
+
+
+.order_button:hover {
+    background-color: #a1d6ff; 
+    color: #004B86;
+
+}
+
+.eathere {
+    min-width: 3px;
+    min-height: 15px;
+    width: 12vmin;
+    height: 12vmin;
+}
+
+.takeout {
+    min-width: 10px;
+    min-height: 10px;
+    width: 12vmin;
+    height: 12vmin;
+}

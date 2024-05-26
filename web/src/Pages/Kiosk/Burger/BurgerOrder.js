@@ -1,41 +1,41 @@
+//BurgerOrder
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./CafeOrder.css";
-import Cart from "./Cart";
-import Modal from "./Modal";
-import CartModal from "./CartModal";
-import ResultModal from "./ResultModal";
-import menu_1 from './img/1.png';
-import menu_2 from './img/2.png';
-import menu_3 from './img/3.png';
-import menu_4 from './img/4.png';
-import menu_5 from './img/5.png';
-import menu_6 from './img/6.png';
+import "./BurgerOrder.css";
+import ShoppingBag from "./ShoppingBag";
+import Modal from "./B_Modal";
+import CartModal from "./B_CartModal";
+import logo from "./img/logo.png";
+
+import menu_1 from './img/001.png';
+import menu_2 from './img/002.png';
+import menu_3 from './img/003.png';
+import menu_4 from './img/004.png';
+import menu_5 from './img/005.png';
+import menu_6 from './img/006.png';
 import menu_7 from './img/7.png';
 import menu_8 from './img/8.png';
 import menu_9 from './img/9.png';
 
 const menu = [
-    { id: 1, name: '수박 주스', price: 4000, image: menu_1, category: '시즌 메뉴' },
-    { id: 2, name: '골드망고 스무디', price: 4800, image: menu_2, category: '시즌 메뉴' },
-    { id: 3, name: '오이 라임 모히또', price: 4800, image: menu_3, category: '시즌 메뉴' },
-    { id: 4, name: '아이스 아메리카노', price: 3000, image: menu_4, category: '커피(ICE)' },
-    { id: 5, name: '콜드브루', price: 3500, image: menu_5, category: '커피(ICE)' },
-    { id: 6, name: '아이스 카페라떼', price: 3500, image: menu_6, category: '커피(ICE)' },
-    { id: 7, name: '아메리카노', price: 3000, image: menu_7, category: '커피(HOT)' },
-    { id: 8, name: '카페라떼', price: 3500, image: menu_8, category: '커피(HOT)' },
+    { id: 1, name: '새우 버거', price: 5000, image: menu_1, category: '단품' },
+    { id: 2, name: '소고기 버거', price: 5100, image: menu_2, category: '단품' },
+    { id: 3, name: '베이컨 토마토 버거', price: 6000, image: menu_3, category: '단품' },
+    { id: 4, name: '기본 버거', price: 4000, image: menu_4, category: '단품' },
+    { id: 5, name: '삼겹 버거', price: 6700, image: menu_5, category: '단품' },
+    { id: 6, name: '베새 버거', price: 700, image: menu_6, category: '단품' },
+    { id: 7, name: '아메리카노(HOT)', price: 3000, image: menu_7, category: '커피(HOT)' },
+    { id: 8, name: '카페라떼(HOT)', price: 3500, image: menu_8, category: '커피(HOT)' },
     { id: 9, name: '에스프레소', price: 2500, image: menu_9, category: '커피(HOT)' }
 ];
 
-export function CafeOrder() {
+export function BurgerOrder() {
     const navigate = useNavigate();
     const [menuCounts, setMenuCounts] = useState(menu.map(menuItem => ({ ...menuItem, count: 0 })));
     const [timeLeft, setTimeLeft] = useState(60000000);
-    const [selectedCategory, setSelectedCategory] = useState('시즌 메뉴');
+    const [selectedCategory, setSelectedCategory] = useState('단품');
     const [showModal, setShowModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-    const [showResultModal, setShowResultModal] = useState(false);
-    const [orderCorrect, setOrderCorrect] = useState(false);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -102,16 +102,8 @@ export function CafeOrder() {
         </li>
     ));
 
-    const correctOrders = [
-        { name: '아이스 아메리카노', count: 1 },
-    ];
-
     const handleOrderClick = () => {
-        const isOrderCorrect = correctOrders.some(correctOrder => 
-            menuCounts.some(item => item.name === correctOrder.name && item.count === correctOrder.count)
-        );
-        setOrderCorrect(isOrderCorrect);
-        setShowResultModal(true);
+        navigate('../Pages/Kiosk/Cafe/Payment');
     };
 
     // voice2text
@@ -137,30 +129,32 @@ export function CafeOrder() {
             }
         };
     };
+    
 
     return (
-        <div className="background">
-            <div className="logo">
-                <div className="logo_text">mAIt KIOSK</div>
-            </div>
+        <div className="main_order">
+          <div className="background">
+            <header className="kheader">
+                <img className="OrderIcon" alt="logo" src={logo} ></img>
+              <div className="header-title">메뉴를 골라주세요</div>
+            </header>
             <div className="category-tabs">
-                <button onClick={() => setSelectedCategory('시즌 메뉴')} className={selectedCategory === '시즌 메뉴' ? 'active' : ''}>시즌 메뉴</button>
-                <button onClick={() => setSelectedCategory('커피(HOT)')} className={selectedCategory === '커피(HOT)' ? 'active' : ''}>커피(HOT)</button>
-                <button onClick={() => setSelectedCategory('커피(ICE)')} className={selectedCategory === '커피(ICE)' ? 'active' : ''}>커피(ICE)</button>
+              <button onClick={() => setSelectedCategory('단품')} className={selectedCategory === '단품' ? 'active' : ''}>세트</button>
+              <button onClick={() => setSelectedCategory('커피(HOT)')} className={selectedCategory === '커피(HOT)' ? 'active' : ''}>단품</button>
+              <button onClick={() => setSelectedCategory('커피(ICE)')} className={selectedCategory === '커피(ICE)' ? 'active' : ''}>사이드</button>
             </div>
             <ul className="menu-list">
-                {menuItems}
+              {menuItems}
             </ul>
             <div className="bottom-section">
-                <Cart items={menuCounts.filter(menuItem => menuItem.count > 0)} onCountChange={handleCountChange} totalprice={totalprice} />
-                <div className="bottom-content">
-                    <div className="time">
-                        <div className="time-head">남은시간</div> 
-                        <div className="time-body"><span>{timeLeft}</span>초</div>
-                    </div>
-                    <button className="mic-button" onClick={recordAudio}>마이크</button>
-                    <button className="checkout-button" onClick={handleOrderClick}>주문하기</button>
+              <div className="bottom-content">
+                <div className="time">
+                  <div className="time-head">남은시간</div> 
+                  <div className="time-body"><span>{timeLeft}</span>초</div>
                 </div>
+                <button type="button" onClick={recordAudio}>마이크</button>
+                <button className="checkout-button" onClick={handleOrderClick}>결제하기</button>
+              </div>
             </div>
             {showModal && selectedItem && (
                 <CartModal
@@ -170,15 +164,13 @@ export function CafeOrder() {
                 />
             )}
             {timeLeft === 0 && <Modal message="시간이 초과되었습니다!" onClose={handleCloseModal} />}
-            {showResultModal && (
-                <ResultModal 
-                    correct={orderCorrect} 
-                    onClose={() => setShowResultModal(false)} 
-                    navigate={navigate}
-                />
-            )}
+          </div>
+          {/* ShoppingBag 컴포넌트를 background div의 오른쪽으로 이동 */}
+          <ShoppingBag items={menuCounts.filter(menuItem => menuItem.count > 0)} onCountChange={handleCountChange} totalprice={totalprice} />
         </div>
-    );
+      );
+      
+      
 }
 
-export default CafeOrder;
+export default BurgerOrder;

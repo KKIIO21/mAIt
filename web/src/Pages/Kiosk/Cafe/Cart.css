@@ -1,4 +1,4 @@
-.shopping-bag {
+.cart {
     background-color: #f8f8f8;
     padding: 20px;
     border-radius: 10px;
@@ -6,25 +6,29 @@
     height: auto;
 }
 
-.shopping-bag h2 {
+.cart span {
+    font-size: 15pt;
+}
+
+.cart h2 {
     text-align: center;
     margin-top: 0;
 }
 
-.shopping-bag ul {
+.cart ul {
     list-style: none;
     min-height: 260px;
     padding: 0;
 }
 
-.shopping-bag li {
+.cart li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
 }
 
-.shopping-bag button {
+.cart button {
     background-color: #ff6347;
     color: white;
     border: none;
@@ -36,4 +40,5 @@
 .total-price {
     font-weight: bold;
     margin-top: 20px;
+    font-size: 15pt;
 }

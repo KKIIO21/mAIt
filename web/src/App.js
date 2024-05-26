@@ -7,11 +7,13 @@ import ChatBot from './Pages/ChatBot/ChatBot.js';
 import Generator from './Pages/Generator/Generator.js';
 import Output from './Pages/Generator/Output.js';
 
+import KioskMain from "./Pages/Kiosk/KioskMain.js";
+
 import PaymentChoice from "./Pages/Kiosk/paymentChoice/PaymentChoice.js"; 
-import FirstPage from "./Pages/Kiosk/FirstPage.js";
+import BurgerMain from "./Pages/Kiosk/Burger/BurgerMain.js";
 import SalesStatistics from "./Pages/Kiosk/SalesStatistics.js";
-import SecondPage from "./Pages/Kiosk/SecondPage.js";
-import ShoppingBag from "./Pages/Kiosk/ShoppingBag.js"; 
+import BurgerOrder from "./Pages/Kiosk/Burger/BurgerOrder.js";
+import ShoppingBag from "./Pages/Kiosk/Burger/ShoppingBag.js"; 
 import CompletePay from "./Pages/Kiosk/CompletePay.js";
 
 import CafeMain from "./Pages/Kiosk/Cafe/CafeMain.js";
@@ -37,10 +39,12 @@ function App() {
           <Route path="/Pages/Generator" element={<Generator/>} />
           <Route path="/Pages/Generator/Output" element={<Output/>} />
 
-          <Route path="/Pages/Kiosk" element={<FirstPage/>}/>
+          <Route path="/Pages/Kiosk/" element={<KioskMain/>}/>
+
+          <Route path="/Pages/Kiosk/Burger" element={<BurgerMain/>}/>
           <Route path="/Pages/Kiosk/salesStatistics" element={<SalesStatistics/>}/>
-          <Route path="/Pages/Kiosk/SecondPage" element={<SecondPage/>}/>
-          <Route path="/Pages/Kiosk/ShoppingBag" element={<ShoppingBag/>}/>
+          <Route path="/Pages/Kiosk/Burger/BurgerOrder" element={<BurgerOrder/>}/>
+          <Route path="/Pages/Kiosk/Burger/ShoppingBag" element={<ShoppingBag/>}/>
           <Route path="/Pages/Kiosk/PaymentChoice" element={<PaymentChoice/>}/>
           <Route path="//Pages/Kiosk/CompletePay" element={<CompletePay/>}/>
           

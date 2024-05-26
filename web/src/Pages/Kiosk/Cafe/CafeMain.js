@@ -12,12 +12,15 @@ function CafeMain() {
 
     return (
         <div className="background">
-            <header className="kheader">
-                <div className="header-title">Easy KIOSK</div>
-            </header>
+            <div className="logo">
+                <div className="logo_text">mAIt KIOSK</div>
+            </div>
             <h1 className="title">메이트 커피</h1>
             <img src={coffeeCupImage} alt="Coffee Cup" className="coffee-cup"/>
-            <button className="option_button" onClick={handleOrderClick}>주문하기</button>
+            <div className='option'>
+                <div className="option_button" onClick={handleOrderClick}>먹고가기</div>
+                <div className="option_button" onClick={handleOrderClick}>포장하기</div>
+            </div>
         </div>
     );
 }
