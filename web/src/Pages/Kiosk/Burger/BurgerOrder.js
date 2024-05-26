@@ -53,9 +53,13 @@ export function BurgerOrder() {
         return () => clearInterval(timer);
     }, []);
 
+    const ReturnPage = () => {
+        navigate("/Pages/Kiosk/Burger");
+    }
+
     const handleCloseModal = () => {
         setShowModal(false);
-        navigate("/Pages/Kiosk/cafe/");
+        navigate("/Pages/Kiosk/Burger/");
     };
 
     const handleMenuClick = (item) => {
@@ -103,7 +107,7 @@ export function BurgerOrder() {
     ));
 
     const handleOrderClick = () => {
-        navigate('../Pages/Kiosk/Cafe/Payment');
+        navigate('../Pages/Kiosk/Burger/Payment');
     };
 
     // voice2text
@@ -135,6 +139,7 @@ export function BurgerOrder() {
         <div className="main_order">
           <div className="background">
             <header className="kheader">
+            <button className="back-button" onClick={ReturnPage}>뒤로 가기</button>
                 <img className="OrderIcon" alt="logo" src={logo} ></img>
               <div className="header-title">메뉴를 골라주세요</div>
             </header>
@@ -146,31 +151,32 @@ export function BurgerOrder() {
             <ul className="menu-list">
               {menuItems}
             </ul>
-            <div className="bottom-section">
-              <div className="bottom-content">
-                <div className="time">
-                  <div className="time-head">남은시간</div> 
-                  <div className="time-body"><span>{timeLeft}</span>초</div>
+            <div className="right-section">
+                <div className="bottom-section">
+                <div className="bottom-content">
+                    <div className="time">
+                    <div className="time-head">남은시간</div> 
+                    <div className="time-body"><span>{timeLeft}</span>초</div>
+                    </div>
+                    <button type="button" onClick={recordAudio}>마이크</button>
                 </div>
-                <button type="button" onClick={recordAudio}>마이크</button>
-                <button className="checkout-button" onClick={handleOrderClick}>결제하기</button>
-              </div>
+                </div>
+                {showModal && selectedItem && (
+                    <CartModal
+                        item={selectedItem}
+                        onClose={() => setShowModal(false)}
+                        onAddToCart={handleAddToCart}
+                    />
+                )}
+                {timeLeft === 0 && <Modal message="시간이 초과되었습니다!" onClose={handleCloseModal} />}
+                <ShoppingBag items={menuCounts.filter(menuItem => menuItem.count > 0)} onCountChange={handleCountChange} totalprice={totalprice} />
+                <div className="checkout-button-container">
+                    <button className="checkout-button" onClick={handleOrderClick}>결제하기</button>
+                    </div>
             </div>
-            {showModal && selectedItem && (
-                <CartModal
-                    item={selectedItem}
-                    onClose={() => setShowModal(false)}
-                    onAddToCart={handleAddToCart}
-                />
-            )}
-            {timeLeft === 0 && <Modal message="시간이 초과되었습니다!" onClose={handleCloseModal} />}
           </div>
-          {/* ShoppingBag 컴포넌트를 background div의 오른쪽으로 이동 */}
-          <ShoppingBag items={menuCounts.filter(menuItem => menuItem.count > 0)} onCountChange={handleCountChange} totalprice={totalprice} />
         </div>
       );
-      
-      
 }
 
 export default BurgerOrder;

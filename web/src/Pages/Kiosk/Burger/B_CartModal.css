@@ -13,30 +13,82 @@
 
 .modal-content {
     background: #fff;
-    width: 300px;
-    padding: 20px;
-    border-radius: 10px;
+    width: 25vw;
+    padding: 1.5vw;
+    border-radius: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modal-image {
-    width: 200px;
+    width: 15vw;
     height: auto;
-    margin: 20px 0;
+    margin-top: 1vw;
+    margin-bottom: none;
 }
 
 .item-name {
-    margin: 30px 0;
+    margin-bottom: 1vw;
+    color: #000000;
+    font: 500 1.5rem Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
 .item-price {
-    margin: 30px 0;
+    margin-bottom: 1vw;
+    color: #004B86;
+    font: 550 2rem Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
 .size-option {
-    margin: 30px 0;
+    margin: 2vw;
 }
+
+/* 사용자 정의 체크박스 스타일 */
+.custom-checkbox input {
+    display: none; /* 기본 체크박스 숨기기 */
+  }
+  
+  .custom-checkbox .checkmark {
+    position: relative;
+    vertical-align: middle;
+    height: 2.5vh;
+    width: 2.5vh;
+    background-color: #eee;
+    border-radius: 50%; /* 동그란 모양 만들기 */
+    display: inline-block;
+    margin-right: 2%; /* 텍스트와의 간격 */
+  }
+
+  .custom-checkbox{
+    color: rgb(0, 0, 0);
+    font: 500 1rem Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    margin-bottom: 10px;   }
+  
+  /* 체크박스 체크 시 스타일 */
+  .custom-checkbox input:checked + .checkmark {
+    background-color: #004B86;
+  }
+  
+  /* 체크박스 체크 시 내부에 표시할 요소 (예: 체크 표시) */
+  .custom-checkbox input:checked + .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* 체크 표시 스타일 */
+  .custom-checkbox input:checked + .checkmark:after {
+    display: block;
+    left: 0.6vh;
+    top: 0.2vw;
+    width: 0.5vw;
+    height: 1.3vh;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+
 
 .modal-actions {
     display: flex;
@@ -44,11 +96,12 @@
 }
 
 .modal-actions button {
-    background-color: #ff6347;
+    background-color: #004B86;
     color: white;
+    font: 500 1rem Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+    border-radius: 1vw;
+    padding: 1.1vw 2vw;
     cursor: pointer;
 }
 

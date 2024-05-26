@@ -7,10 +7,33 @@
 
 .shopping-bag {
   position: absolute;
+  width: 17vw;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  margin-right: 2vw;
+  margin-right: 2.5vw;
+}
+
+.bottom-section{
+  position: absolute;
+  right: 0;
+  top: 20%;
+  transform: translateY(-50%);
+  margin-right: 7vw;
+}
+
+.bottom-content{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-head{
+  font: 400 1.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  color: #001B62;
+  
 }
 
 .container {
@@ -24,14 +47,23 @@
 }
 
 .kheader {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap : 1vw;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 1vw;
 }
+
+.back-button {
+  position: absolute;
+  left: 20px; /* 로고와의 간격 */
+  top: 20px; /* 상단과의 간격 */
+  /* 기타 스타일링 */
+}
+
 .OrderIcon{
   margin-top: 1vw;
   height: 3vh;
@@ -41,6 +73,28 @@
 .header-title{
   font: 200 1rem Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
+
+.category-tabs button{
+  width: 5.2vw;
+  height: 3.7vh;
+  margin-right: 0.5vw;
+  background-color: #4ea2fc;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font: 400 1.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  transition: background-color 0s; 
+  border-radius: 2.5vw;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.category-tabs button:hover {
+  font: 400 1.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  background-color: #001B62; 
+  color: #ffffff;
+}
+
 
 .menu-list {
   list-style: none;
@@ -77,4 +131,30 @@
   .menu-item img {
     width: 100px;
   }
+}
+
+.checkout-button-container {
+  position: absolute;
+  right: 0;
+  top: calc(60% + 20vh); /* shopping-bag의 아래로 위치시키기 위해 조정 */
+  transform: translateY(-50%);
+  margin-right: 7vw;
+}
+
+.checkout-button-container button{
+  width: 10vw;
+  height: 5vh;
+  background-color: #c8c8c8;
+  color: #00000058;
+  border: none;
+  cursor: pointer;
+  font: 550 1.7vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  transition: background-color 0s;
+  border-radius: 1vw;
+  text-decoration: none;
+}
+.checkout-button-container button:hover{
+  background-color: #4ea2fc;
+  color: #ffffff;
+  font: 550 1.8vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }

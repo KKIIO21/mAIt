@@ -20,9 +20,16 @@ const CartModal = ({ item, onClose, onAddToCart, message }) => {
                 <h2 className="item-name">{item.name}</h2>
                 <div className="item-price">{item.price}원</div>
                 <div className="size-option">
-                    <label>
+                    <label className="custom-checkbox">
                         <input type="checkbox" />
-                        무료 사이즈 업 (+0원)
+                        <span class="checkmark"></span>
+                        콜라 추가 (+1000원)
+                    </label>
+                    <br/>
+                    <label className="custom-checkbox">
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                        감자튀김 추가 (+1500원)
                     </label>
                 </div>
                 <div className="modal-actions">
