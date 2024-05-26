@@ -1,4 +1,17 @@
 /* SecondPage.css */
+.main_order {
+  display: flex;
+  height: 88vh; /* 전체 화면 높이 */
+  position: relative; /* ShoppingBag의 절대 위치 기준 */
+}
+
+.shopping-bag {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 2vw;
+}
 
 .container {
   display: flex;
@@ -13,9 +26,20 @@
 .kheader {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+  gap : 1vw;
   align-items: center;
   margin-bottom: 20px;
+}
+.OrderIcon{
+  margin-top: 1vw;
+  height: 3vh;
+  width: auto;
+}
+
+.header-title{
+  font: 200 1rem Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
 .menu-list {
@@ -24,7 +48,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* 메뉴 아이템 사이의 간격 */
+  gap: 1vw; /* 메뉴 아이템 사이의 간격 */
 }
 
 .menu-item {
@@ -33,16 +57,16 @@
   align-items: center;
   cursor: pointer;
   background-color: #f8f8f8;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 0.5vw;
+  border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
-  aspect-ratio: 3 / 4; /* 3:4 비율 추가 */
+  aspect-ratio: 3 / 4;
 }
 
 .menu-item img {
-  width: 150px; /* 이미지 너비 고정 */
-  height: auto; /* 이미지 높이 자동 조절 */
+  width: 11vw;
+  height: auto; 
 }
 
 @media (max-width: 768px) {

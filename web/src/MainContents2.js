@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import './Main.css';
 
 export default function MainContent() {
@@ -9,6 +9,7 @@ export default function MainContent() {
   const categoryNames = ["정치", "경제", "사회", "문화"];
   const categoryMap = { '정치': 'poli', '경제': 'econo', '사회': 'soci', '문화': 'cul' };
 
+{/*
   useEffect(() => {
     const fetchNews = async () => {
       const res = await axios.get('http://localhost:50/get_news');
@@ -43,6 +44,7 @@ export default function MainContent() {
     }
     return text;
   };
+*/}
 
   return (
     <div className="main_cons">
@@ -53,7 +55,7 @@ export default function MainContent() {
       </div>
       <div className="contents">
         <div className="mcon">
-          <a href="/Pages/Kiosk" className="mcon1 main-button" rel="noopener noreferrer">
+          <a href="/Pages/Kiosk/Burger" className="mcon1 main-button" rel="noopener noreferrer">
             키오스크<br/>체험하기
           </a>
           <a href="/Pages/Generator" className="mcon1 main-button" rel="noopener noreferrer">
@@ -66,6 +68,7 @@ export default function MainContent() {
             오늘은 어떤 소식이 있을까요?
           </div>
           <div className="divider" />
+          {/*
           <div className='news-inner'>
             {news.map((item, index) => (
               <a href={item.link} key={index} className="button" target="_blank" rel="noopener noreferrer" onClick={(e) => {
@@ -87,6 +90,7 @@ export default function MainContent() {
               </div>
             )}
           </div>
+          */}
         </div>
       </div>
     </div>
