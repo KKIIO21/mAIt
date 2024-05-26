@@ -123,6 +123,21 @@
   background-color: #d6523a;
 }
 
+.mic-button {
+  width: 100%;
+  height: 100px;
+  padding: 20px;
+  margin-bottom: 10px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .time {
   font-weight: bold;
   text-align: center;

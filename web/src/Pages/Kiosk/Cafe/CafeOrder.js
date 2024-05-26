@@ -18,11 +18,11 @@ const menu = [
     { id: 1, name: '수박 주스', price: 4000, image: menu_1, category: '시즌 메뉴' },
     { id: 2, name: '골드망고 스무디', price: 4800, image: menu_2, category: '시즌 메뉴' },
     { id: 3, name: '오이 라임 모히또', price: 4800, image: menu_3, category: '시즌 메뉴' },
-    { id: 4, name: '아메리카노(ICE)', price: 3000, image: menu_4, category: '커피(ICE)' },
+    { id: 4, name: '아이스 아메리카노', price: 3000, image: menu_4, category: '커피(ICE)' },
     { id: 5, name: '콜드브루', price: 3500, image: menu_5, category: '커피(ICE)' },
-    { id: 6, name: '카페라떼(ICE)', price: 3500, image: menu_6, category: '커피(ICE)' },
-    { id: 7, name: '아메리카노(HOT)', price: 3000, image: menu_7, category: '커피(HOT)' },
-    { id: 8, name: '카페라떼(HOT)', price: 3500, image: menu_8, category: '커피(HOT)' },
+    { id: 6, name: '아이스 카페라떼', price: 3500, image: menu_6, category: '커피(ICE)' },
+    { id: 7, name: '아메리카노', price: 3000, image: menu_7, category: '커피(HOT)' },
+    { id: 8, name: '카페라떼', price: 3500, image: menu_8, category: '커피(HOT)' },
     { id: 9, name: '에스프레소', price: 2500, image: menu_9, category: '커피(HOT)' }
 ];
 
@@ -148,7 +148,7 @@ export function CafeOrder() {
                         <div className="time-head">남은시간</div> 
                         <div className="time-body"><span>{timeLeft}</span>초</div>
                     </div>
-                    <button type="button" onClick={recordAudio}>마이크</button>
+                    <button className="mic-button" onClick={recordAudio}>마이크</button>
                     <button className="checkout-button" onClick={handleOrderClick}>결제하기</button>
                 </div>
             </div>
