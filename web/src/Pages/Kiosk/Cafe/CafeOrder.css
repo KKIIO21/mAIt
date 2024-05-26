@@ -26,6 +26,23 @@
   font-weight: bold;
 }
 
+.return-button {
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: right;
+  border: none;
+  font-size: 25px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.return-button:hover {
+  background-color: #e0e0e0;
+  color: black;
+}
+
 .logo_text {
   flex: 1;
   text-align: left;
@@ -41,7 +58,7 @@
 }
 
 .category-tabs button {
-  background-color: #e0e0e0;
+  background-color: #f8f8f8;
   color: black;
   border: none;
   padding: 10px 40px;

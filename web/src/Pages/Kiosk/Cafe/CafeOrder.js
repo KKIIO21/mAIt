@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./CafeOrder.css";
 import Cart from "./Cart";
 import Modal from "./Modal";
@@ -36,6 +36,8 @@ export function CafeOrder() {
     const [selectedItem, setSelectedItem] = useState(null);
     const [showResultModal, setShowResultModal] = useState(false);
     const [orderCorrect, setOrderCorrect] = useState(false);
+    const location = useLocation();
+    const option = location?.state?.option || 'eatIn';
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -102,17 +104,39 @@ export function CafeOrder() {
         </li>
     ));
 
-    const correctOrders = [
-        { name: '아이스 아메리카노', count: 1 },
-    ];
-
     const handleOrderClick = () => {
-        const isOrderCorrect = correctOrders.some(correctOrder => 
-            menuCounts.some(item => item.name === correctOrder.name && item.count === correctOrder.count)
-        );
+        const correctOrdersForOption = option === 'takeAway' ? [
+            [
+                { name: '아메리카노', count: 1 },
+            ],
+            [
+                { name: '카페라떼', count: 2 },
+                { name: '콜드브루', count: 1 }
+            ],
+            [
+                { name: '골드망고 스무디', count: 1 },
+                { name: '아메리카노', count: 2 }
+            ]
+        ] : [
+            [
+                { name: '수박 주스', count: 1 }
+            ],
+            [
+                { name: '에스프레소', count: 1 }
+            ],
+        ];
+    
+        const isOrderCorrect = correctOrdersForOption.some(correctOrder => {
+            return correctOrder.every(correctItem => {
+                const foundItem = menuCounts.find(item => item.name === correctItem.name);
+                return foundItem && foundItem.count === correctItem.count;
+            });
+        });
+    
         setOrderCorrect(isOrderCorrect);
         setShowResultModal(true);
     };
+    
 
     // voice2text
     const recordAudio = () => {
@@ -138,10 +162,15 @@ export function CafeOrder() {
         };
     };
 
+    const handleReturn = () => {
+        navigate("/Pages/Kiosk/cafe/");
+    };
+
     return (
         <div className="background">
             <div className="logo">
                 <div className="logo_text">mAIt KIOSK</div>
+                <button className="return-button" onClick={handleReturn}>돌아가기</button>
             </div>
             <div className="category-tabs">
                 <button onClick={() => setSelectedCategory('시즌 메뉴')} className={selectedCategory === '시즌 메뉴' ? 'active' : ''}>시즌 메뉴</button>
