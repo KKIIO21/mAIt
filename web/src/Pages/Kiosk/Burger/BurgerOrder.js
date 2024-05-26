@@ -13,9 +13,23 @@ import menu_3 from './img/003.png';
 import menu_4 from './img/004.png';
 import menu_5 from './img/005.png';
 import menu_6 from './img/006.png';
-import menu_7 from './img/7.png';
-import menu_8 from './img/8.png';
-import menu_9 from './img/9.png';
+import menu_7 from './img/007.png';
+import menu_8 from './img/008.png';
+import menu_9 from './img/009.png';
+import menu_10 from './img/010.png';
+import menu_11 from './img/011.png';
+import menu_12 from './img/012.png';
+import menu_13 from './img/13.jpg';
+import menu_14 from './img/14.jpg';
+import menu_15 from './img/15.jpg';
+import menu_16 from './img/16.jpg';
+
+
+
+
+
+
+
 
 const menu = [
     { id: 1, name: '새우 버거', price: 5000, image: menu_1, category: '단품' },
@@ -24,9 +38,17 @@ const menu = [
     { id: 4, name: '기본 버거', price: 4000, image: menu_4, category: '단품' },
     { id: 5, name: '삼겹 버거', price: 6700, image: menu_5, category: '단품' },
     { id: 6, name: '베새 버거', price: 700, image: menu_6, category: '단품' },
-    { id: 7, name: '아메리카노(HOT)', price: 3000, image: menu_7, category: '커피(HOT)' },
-    { id: 8, name: '카페라떼(HOT)', price: 3500, image: menu_8, category: '커피(HOT)' },
-    { id: 9, name: '에스프레소', price: 2500, image: menu_9, category: '커피(HOT)' }
+    { id: 7, name: '양파 버거 세트', price: 9100, image: menu_7, category: '세트' },
+    { id: 8, name: '완전 치킨 버거 세트', price: 12500, image: menu_8, category: '세트' },
+    { id: 9, name: '직화고기 버거 세트', price: 11400, image: menu_9, category: '세트' },
+    { id: 10, name: '버거가 2개 세트', price: 12400, image: menu_10, category: '세트' },
+    { id: 11, name: '완전 매콤 치킨 세트', price: 11400, image: menu_11, category: '세트' },
+    { id: 12, name: '불고기 버거 세트', price: 11400, image: menu_12, category: '세트' },
+    { id: 13, name: '코카가 콜라', price: 1400, image: menu_13, category: '사이드' },
+    { id: 14, name: '너 내 환타타타', price: 1400, image: menu_14, category: '사이드' },
+    { id: 15, name: '감자튀김', price: 3400, image: menu_15, category: '사이드' },
+    { id: 16, name: '치즈스틱 2개', price: 2400, image: menu_16, category: '사이드' }
+
 ];
 
 export function BurgerOrder() {
@@ -144,9 +166,9 @@ export function BurgerOrder() {
               <div className="header-title">메뉴를 골라주세요</div>
             </header>
             <div className="category-tabs">
-              <button onClick={() => setSelectedCategory('단품')} className={selectedCategory === '단품' ? 'active' : ''}>세트</button>
-              <button onClick={() => setSelectedCategory('커피(HOT)')} className={selectedCategory === '커피(HOT)' ? 'active' : ''}>단품</button>
-              <button onClick={() => setSelectedCategory('커피(ICE)')} className={selectedCategory === '커피(ICE)' ? 'active' : ''}>사이드</button>
+              <button onClick={() => setSelectedCategory('단품')} className={selectedCategory === '단품' ? 'active' : ''}>단품</button>
+              <button onClick={() => setSelectedCategory('세트')} className={selectedCategory === '세트' ? 'active' : ''}>세트</button>
+              <button onClick={() => setSelectedCategory('사이드')} className={selectedCategory === '사이드' ? 'active' : ''}>사이드</button>
             </div>
             <ul className="menu-list">
               {menuItems}
