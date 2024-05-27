@@ -20,7 +20,7 @@ function KioskMain() {
         if (situation === 'cafe') {
             navigate('./cafe');
         }
-        else if (situation === 'fastfood') {
+        else if (situation === 'burger') {
             navigate('./burger');
         }
         else if (situation === 'cinema') {
@@ -34,8 +34,8 @@ function KioskMain() {
             <div className="options">
                 <p>Step1. 원하는 상황을 설정해주세요</p>
                 <button onClick={() => setSituation('cafe')} className={situation === 'cafe' ? 'selected' : ''}>카페</button>
+                <button onClick={() => setSituation('burger')} className={situation === 'burger' ? 'selected' : ''}>패스트푸드</button>
                 <button onClick={() => setSituation('cinema')} className={situation === 'cinema' ? 'selected' : ''}>영화관</button>
-                <button onClick={() => setSituation('fastfood')} className={situation === 'fastfood' ? 'selected' : ''}>패스트푸드</button>
             </div>
             <div className="options2">
                 <p>Step2. 난이도를 설정해주세요</p>

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./CafeOrder.css";
 import Cart from "./Cart";
-import Modal from "./Modal";
+import TimeOver from "../TimeOver";
 import CartModal from "./CartModal";
-import ResultModal from "./ResultModal";
+import ResultModal from "../ResultModal";
 import menu_1 from './img/1.png';
 import menu_2 from './img/2.png';
 import menu_3 from './img/3.png';
@@ -17,8 +17,8 @@ import menu_9 from './img/9.png';
 
 const menu = [
     { id: 1, name: '수박 주스', price: 4000, image: menu_1, category: '시즌 메뉴' },
-    { id: 2, name: '골드망고 스무디', price: 4800, image: menu_2, category: '시즌 메뉴' },
-    { id: 3, name: '오이 라임 모히또', price: 4800, image: menu_3, category: '시즌 메뉴' },
+    { id: 2, name: '망고 스무디', price: 4800, image: menu_2, category: '시즌 메뉴' },
+    { id: 3, name: '라임 모히또', price: 4800, image: menu_3, category: '시즌 메뉴' },
     { id: 4, name: '아이스 아메리카노', price: 3000, image: menu_4, category: '커피(ICE)' },
     { id: 5, name: '콜드브루', price: 3500, image: menu_5, category: '커피(ICE)' },
     { id: 6, name: '아이스 카페라떼', price: 3500, image: menu_6, category: '커피(ICE)' },
@@ -38,6 +38,7 @@ export function CafeOrder() {
     const [orderCorrect, setOrderCorrect] = useState(false);
     const location = useLocation();
     const option = location?.state?.option || 'eatIn';
+    
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -57,7 +58,7 @@ export function CafeOrder() {
 
     const handleCloseModal = () => {
         setShowModal(false);
-        navigate("/Pages/Kiosk/cafe/");
+        navigate("/Pages/Kiosk/");
     };
 
     const handleMenuClick = (item) => {
@@ -107,7 +108,7 @@ export function CafeOrder() {
     const handleOrderClick = () => {
         const correctOrdersForOption = option === 'takeAway' ? [
             [
-                { name: '아메리카노', count: 1 },
+                { name: '아이스 아메리카노', count: 1 },
             ],
             [
                 { name: '카페라떼', count: 2 },
@@ -123,6 +124,10 @@ export function CafeOrder() {
             ],
             [
                 { name: '에스프레소', count: 1 }
+            ],
+            [
+                { name: '아이스 카페라떼', count: 1 },
+                { name: '라임 모히또', count: 1 }
             ],
         ];
     
@@ -198,7 +203,7 @@ export function CafeOrder() {
                     onAddToCart={handleAddToCart}
                 />
             )}
-            {timeLeft === 0 && <Modal message="시간이 초과되었습니다!" onClose={handleCloseModal} />}
+            {timeLeft === 0 && <TimeOver onClose={handleCloseModal} />}
             {showResultModal && (
                 <ResultModal 
                     correct={orderCorrect} 

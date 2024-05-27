@@ -14,7 +14,7 @@ import BurgerMain from "./Pages/Kiosk/Burger/BurgerMain.js";
 import SalesStatistics from "./Pages/Kiosk/SalesStatistics.js";
 import BurgerOrder from "./Pages/Kiosk/Burger/BurgerOrder.js";
 import ShoppingBag from "./Pages/Kiosk/Burger/ShoppingBag.js"; 
-import CompletePay from "./Pages/Kiosk/CompletePay.js";
+import BurgerPay from "./Pages/Kiosk/Burger/BurgerPay.js"
 
 import CafeMain from "./Pages/Kiosk/Cafe/CafeMain.js";
 import CafeOrder from "./Pages/Kiosk/Cafe/CafeOrder.js";
@@ -43,13 +43,17 @@ function App() {
 
           <Route path="/Pages/Kiosk/Burger" element={<BurgerMain/>}/>
           <Route path="/Pages/Kiosk/salesStatistics" element={<SalesStatistics/>}/>
-          <Route path="/Pages/Kiosk/Burger/BurgerOrder" element={<BurgerOrder/>}/>
+          <Route path="/Pages/Kiosk/Burger/Order" element={<BurgerOrder/>}/>
           <Route path="/Pages/Kiosk/Burger/ShoppingBag" element={<ShoppingBag/>}/>
           <Route path="/Pages/Kiosk/PaymentChoice" element={<PaymentChoice/>}/>
-          <Route path="//Pages/Kiosk/CompletePay" element={<CompletePay/>}/>
           
           <Route path="/Pages/Kiosk/Cafe" element={<CafeMain/>}/>
           <Route path="/Pages/Kiosk/Cafe/Order" element={<CafeOrder/>}/>
+          <Route path="/Pages/Kiosk/Burger/BurgerPay" element={<BurgerPay/>}>
+
+          </Route>
+
+
         </Routes>
       </div>
     </Router>

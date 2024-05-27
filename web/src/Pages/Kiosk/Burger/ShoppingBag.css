@@ -1,39 +1,57 @@
-.shopping-bag {
+.B_shopping-bag {
     background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1.5vw;
+    border-radius: 1vw;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.209);
     height: auto;
 }
 
-.shopping-bag h2 {
+.B_shopping-bag {
     text-align: center;
-    margin-top: 0;
+    font: 500 1.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-.shopping-bag ul {
+.sdivider{
+    background-color: #9b9b9b;
+    height: 1px;
+    margin-top: 1vw;
+    width: 100%;
+}
+
+.B_shopping-bag-inner{
+    font: 400 1.1vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.B_shopping-bag-inner ul {
     list-style: none;
-    min-height: 140px;
+    min-height: 25vh;
+    max-height: 25vh;
     padding: 0;
+    overflow-y: auto
 }
 
-.shopping-bag li {
+.B_shopping-bag li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 1vw;
 }
 
-.shopping-bag button {
-    background-color: #ff6347;
+.B_shopping-bag button {
+    background-color: #4ea2fca8;
+    font: 550 1.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+    border-radius: 1vw;
+    padding: 0.2vw 0.5vw;
     cursor: pointer;
 }
 
-.total-price {
-    font-weight: bold;
+.B_total-price {
     margin-top: 20px;
+}
+
+.B_total-price span{
+    font-weight: bold;
+    color: #001B62;
 }
