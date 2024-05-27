@@ -1,0 +1,57 @@
+.shopping-bag {
+    background-color: #f8f8f8;
+    padding: 1.5vw;
+    border-radius: 1vw;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.209);
+    height: auto;
+}
+
+.shopping-bag {
+    text-align: center;
+    font: 550 1.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.sdivider{
+    background-color: #9b9b9b;
+    height: 1px;
+    margin-top: 1vw;
+    width: 100%;
+}
+
+.shopping-bag-inner{
+    font: 400 1.1vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.shopping-bag-inner ul {
+    list-style: none;
+    min-height: 25vh;
+    max-height: 25vh;
+    padding: 0;
+    overflow-y: auto
+}
+
+.shopping-bag li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vw;
+}
+
+.shopping-bag button {
+    background-color: #4ea2fca8;
+    font: 550 1.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    color: white;
+    border: none;
+    border-radius: 1vw;
+    padding: 0.2vw 0.5vw;
+    cursor: pointer;
+}
+
+.total-price {
+    margin-top: 20px;
+}
+
+.total-price span{
+    font-weight: bold;
+    color: #001B62;
+}

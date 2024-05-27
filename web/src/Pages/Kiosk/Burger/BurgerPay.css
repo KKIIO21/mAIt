@@ -1,0 +1,57 @@
+.main_Pay {
+    display: flex;
+    height: 88vh; /* 전체 화면 높이 */
+    position: relative; 
+  }
+  
+.Pay_script {
+  padding: 5%;
+  font: 550 2vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap : 1.5vw;
+}
+
+.payment-button {
+  font: 400 2.2vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  padding: 3%;
+  border: 1px solid #ddd;
+  width: 15vw;
+  height: 40vh;
+  border-radius: 2vw;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.pay-button span{
+  font: 300 1.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.payment-button.selected {
+  background-color: navy;
+  color: white;
+}
+
+.pay-button {
+  font: 400 2vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  padding: 3%;
+  width: 15vw;
+  height: 8vh;
+  margin-bottom: 3vw;
+  border: none;
+  border-radius: 1vw;
+  background-color: #001B62;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pay-button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}

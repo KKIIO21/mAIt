@@ -44,6 +44,7 @@ export default function MainContent() {
     return text;
   };
 
+
   return (
     <div className="main_cons">
       <img src={require('./mAIt.png')} className="mlogo" alt="MLogo"/>
@@ -53,7 +54,7 @@ export default function MainContent() {
       </div>
       <div className="contents">
         <div className="mcon">
-          <a href="/Pages/Kiosk" className="mcon1 main-button" rel="noopener noreferrer">
+          <a href="/Pages/Kiosk/Burger" className="mcon1 main-button" rel="noopener noreferrer">
             키오스크<br/>체험하기
           </a>
           <a href="/Pages/Generator" className="mcon1 main-button" rel="noopener noreferrer">
@@ -66,6 +67,7 @@ export default function MainContent() {
             오늘은 어떤 소식이 있을까요?
           </div>
           <div className="divider" />
+
           <div className='news-inner'>
             {news.map((item, index) => (
               <a href={item.link} key={index} className="button" target="_blank" rel="noopener noreferrer" onClick={(e) => {
