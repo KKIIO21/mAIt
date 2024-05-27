@@ -13,15 +13,15 @@ function BurgerMain() {
     }
     return (
         <div className='BurgerMain'>
-            <div className="background">
-            <div className="first_page_container">
-                <img className="Icon" alt="logo" src={logo} ></img>
+            <div className="B_background">
+            <div className="B_first_page_container">
+                <img className="B_Icon" alt="logo" src={logo} ></img>
                 <br/>
                 <img className="burger_image_main" alt="bim" src={bim} ></img>
 
                 <div className="button_container">
-                    <button className="order_button" onClick={movePage}>매장 주문</button>
-                    <button className="order_button" onClick={movePage}>포장 주문</button>
+                    <button className="B_order_button" onClick={movePage}>매장 주문</button>
+                    <button className="B_order_button" onClick={movePage}>포장 주문</button>
                 </div>
             </div>
             </div>

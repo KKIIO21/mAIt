@@ -4,11 +4,11 @@ import "./ShoppingBag.css";
 
 function ShoppingBag({ items, onCountChange, totalprice }) {
     return (
-        <div className="shopping-bag">
+        <div className="B_shopping-bag">
             장바구니
             <div className="sdivider" />
 
-            <div className="shopping-bag-inner">
+            <div className="B_shopping-bag-inner">
                 <ul>
                     {items.map(item => (
                         <li key={item.id}>
@@ -21,7 +21,7 @@ function ShoppingBag({ items, onCountChange, totalprice }) {
                     ))}
                 </ul>
             </div>
-            <div className="total-price">총 가격 : <span>{totalprice}</span>원</div>
+            <div className="B_total-price">총 가격 : <span>{totalprice}</span>원</div>
         </div>
     );
 }
