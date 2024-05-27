@@ -5,6 +5,7 @@ import json
 import random
 import openai
 import time
+import requests
 from flask import Flask, request, jsonify, send_from_directory
 from diffusers import StableDiffusionInstructPix2PixPipeline, EulerAncestralDiscreteScheduler
 from flask_cors import CORS
@@ -120,15 +121,95 @@ def get_news():
 #############################################################################################################
 # ChatBot #
 
+
 # text to voice
-def text2voice(r_text, chatId):
+def text2voice(r_text, chatId, voice):
     timestamp = str(int(time.time()))
     filename = f"{chatId}/{chatId}_{timestamp}_답변.mp3"
+    url = "https://typecast.ai/api/speak"
+    
+    # 오류로 인해 하드코딩으로 진행했음.
+    # actors_id = ["5ffda44bcba8f6d3d46fc41f", "63a3d9da4b235ddd6541a795", "65c47f4f7e237f1cb0a80380", "63edf3d68aab086d6b782a55", "633d52c5febcba27f45eced7", "65571d1aa52fc0f2872045fa"]
+    
+    # actor_id = actors_id[int(voice)]
+
+    payload = json.dumps({
+        "actor_id": "65c47f4f7e237f1cb0a80380",
+        "text": r_text,
+        "lang": "auto",
+        "tempo": 1,
+        "volume": 100,
+        "pitch": 0,
+        "xapi_hd": True,
+        "max_seconds": 60,
+        "model_version": "latest",
+        "xapi_audio_format": "mp3"
+    })
+    
     try:
-        tts = gTTS(text=r_text, lang='ko')
-        tts.save(f"chatbot_result/{filename}")
-        return timestamp
+        with open('./key2.txt', 'r') as file:
+            key = file.read()
     except Exception as e:
+        return jsonify({'error': f'Failed to load API key2. ERROR: {str(e)}'}), 500
+    
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'{key}'
+    }
+
+    try:
+        response = requests.post(url, headers=headers, data=payload)
+        
+        if response.status_code == 401:
+            print("인증 오류: API 호출에 실패했습니다. 인증 토큰을 확인하세요.")
+            return False
+        elif response.status_code == 400:
+            print("잘못된 요청: 요청 형식을 확인하세요.")
+            print("응답 내용:", response.text)
+            return False
+        
+        response.raise_for_status()
+        
+        response_json = response.json()
+        result = response_json.get("result")
+        
+        if result:
+            speak_url = result.get("speak_v2_url")
+            
+            if speak_url:
+                for _ in range(120):  # 최대 120초 동안 폴링
+                    audio_response = requests.get(speak_url, headers=headers)
+                    audio_result = audio_response.json().get("result")
+                    
+                    if audio_result['status'] == 'done':
+                        audio_download_url = audio_result.get('audio_download_url')
+                        if audio_download_url:
+                            final_audio_response = requests.get(audio_download_url)
+                            final_audio_response.raise_for_status()  # HTTP 오류 발생 시 예외 발생
+
+                            # 'result' 디렉토리가 존재하지 않으면 생성
+                            if not os.path.exists('result'):
+                                os.makedirs('result')
+
+                            with open(f"chatbot_result/{filename}", 'wb') as audio_file:
+                                audio_file.write(final_audio_response.content)
+                            return timestamp
+                        else:
+                            print("오디오 다운로드 URL을 찾을 수 없습니다.")
+                            return False
+                    elif audio_result['status'] == 'progress':
+                        print(f"status: {audio_result['status']}, waiting 1 second")
+                        time.sleep(1)
+                    else:
+                        print("오디오 생성에 실패했습니다.")
+                        return False
+            else:
+                print("오디오 생성 URL을 찾을 수 없습니다.")
+                return False
+        else:
+            print("응답에서 결과를 찾을 수 없습니다.")
+            return False
+    except requests.exceptions.RequestException as e:
         print(f"text2voice 실행 중 오류 발생: {str(e)}")
         return False
 
@@ -137,6 +218,8 @@ def message():
     data = request.json
     text = data.get('text')
     chatId = data.get('chatId')
+    voice = data.get('voice')
+    print(voice)
 
     if not text:
         return jsonify({'error': 'No text provided'}), 400
@@ -195,7 +278,7 @@ def message():
         print(f"파일을 찾을 수 없습니다.")
 
     # 답변 반환
-    timestamp = text2voice(r_text, chatId)
+    timestamp = text2voice(r_text, chatId, voice)
     if timestamp:
         return jsonify({'text': text, 'r_text': r_text, 'chatId': chatId, 'timestamp': timestamp}), 200
     else:
@@ -215,4 +298,4 @@ def serve_mp3(url):
 #############################################################################################################
 
 if __name__ == '__main__':
-    app.run(port=50)  # debug=True causes Restarting with stat
+    app.run(port=50, debug=True)  # debug=True causes Restarting with stat
