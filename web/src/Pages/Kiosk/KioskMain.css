@@ -1,0 +1,68 @@
+.kiosk-main {
+    padding: 20px;
+    margin-left: 40px;
+}
+
+.hd {
+    font: 100 20px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.options p {
+    font: 440 50px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.options2 p {
+    font: 440 50px Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.options {
+    margin: 40px 0;
+}
+
+.options2 {
+    margin: 80px 0;
+}
+
+.options button {
+    margin-right: 20px;
+    padding: 10px 20px;
+    font-size: 30px;
+    border: none;
+    border-radius: 20px;
+ 
+}
+
+.options2 button {
+    margin-right: 20px;
+    padding: 10px 20px;
+    font-size: 30px;
+    border: none;
+    border-radius: 20px;
+ 
+}
+
+button:hover {
+    background-color: #001B62; 
+    color: #ffffff;
+  }
+
+button.selected {
+    background-color: #001B62;
+    color: white;
+}
+
+
+.start-button {
+    background-color: grey;
+    color: white;
+    font-size: 40px;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+}
+
+.start-button:disabled {
+    background-color: lightgrey;
+    cursor: not-allowed;
+}

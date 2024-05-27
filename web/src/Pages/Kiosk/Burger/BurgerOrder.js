@@ -1,11 +1,12 @@
 //BurgerOrder
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./BurgerOrder.css";
 import ShoppingBag from "./ShoppingBag";
-import Modal from "./B_Modal";
+import TimeOver from "../TimeOver";
 import CartModal from "./B_CartModal";
 import Blogo from "./img/logo.png";
+import ResultModal from "../ResultModal";
 
 import B_1 from './img/001.png';
 import B_2 from './img/002.png';
@@ -58,6 +59,10 @@ export function BurgerOrder() {
     const [selectedCategory, setSelectedCategory] = useState('단품');
     const [showModal, setShowModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
+    const [showResultModal, setShowResultModal] = useState(false);
+    const [orderCorrect, setOrderCorrect] = useState(false);
+    const location = useLocation();
+    const option = location?.state?.option || 'eatIn';
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -82,7 +87,7 @@ export function BurgerOrder() {
 
     const handleCloseModal = () => {
         setShowModal(false);
-        navigate("/Pages/Kiosk/Burger/");
+        navigate("/Pages/Kiosk/");
     };
 
     const handleMenuClick = (item) => {
@@ -132,8 +137,48 @@ export function BurgerOrder() {
         </li>
     ));
 
-    const handleOrderClick = () => {
+    /*const handleOrderClick = () => {
         navigate('../Pages/Kiosk/Burger/BurgerPay');
+    };*/
+
+    const handleOrderClick = () => {
+        const correctOrdersForOption = option === 'takeAway' ? [
+            [
+                { name: '새우 버거', count: 1 },
+            ],
+            [
+                { name: '삼겹 버거', count: 1 },
+            ],
+            [
+                { name: '소고기 버거', count: 1 },
+                { name: '치즈스틱 2개', count: 1 },
+                { name: '코카가 콜라', count: 1 }
+            ],
+            [
+                { name: '완전 치킨 버거 세트', count: 1 },
+                { name: '감자튀김', count: 2 },
+                { name: '코카가 콜라', count: 1 },
+            ]
+        ] : [
+            [
+                { name: '불고기 버거 세트', count: 1 }
+            ],
+            [
+                { name: '양파 버거 세트', count: 1 },
+                { name: '코카가 콜라', count: 1 },
+                { name: '환타타', count: 1 },
+            ],
+        ];
+    
+        const isOrderCorrect = correctOrdersForOption.some(correctOrder => {
+            return correctOrder.every(correctItem => {
+                const foundItem = menuCounts.find(item => item.name === correctItem.name);
+                return foundItem && foundItem.count === correctItem.count;
+            });
+        });
+    
+        setOrderCorrect(isOrderCorrect);
+        setShowResultModal(true);
     };
 
     // voice2text
@@ -197,11 +242,18 @@ export function BurgerOrder() {
                         onAddToCart={handleAddToCart}
                     />
                 )} 
-                {timeLeft === 0 && <Modal message="시간이 초과되었습니다!" onClose={handleCloseModal} />}
+                {timeLeft === 0 && <TimeOver onClose={handleCloseModal} />}
                 <ShoppingBag items={menuCounts.filter(menuItem => menuItem.count > 0)} onCountChange={handleCountChange} totalprice={totalprice} />
                 <div className="B_checkout-button-container">
                     <button className="B_checkout-button" onClick={handleOrderClick}>결제하기</button>
-                    </div>
+                </div>
+                {showResultModal && (
+                    <ResultModal 
+                        correct={orderCorrect} 
+                        onClose={() => setShowResultModal(false)} 
+                        navigate={navigate}
+                    />
+                )}
             </div>
           </div>
         </div>

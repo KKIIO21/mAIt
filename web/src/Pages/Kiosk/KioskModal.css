@@ -1,0 +1,34 @@
+.kmodal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kmodal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.kmodal p {
+    margin: 30px;
+    font-size: 2.5em;
+}
+
+.kmodal button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 8px;
+    background: #001B62;
+    color: white;
+    cursor: pointer;
+}
