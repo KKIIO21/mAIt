@@ -1,4 +1,3 @@
-/* SecondPage.css */
 .main_order {
   display: flex;
   height: 88vh; /* 전체 화면 높이 */
@@ -15,11 +14,12 @@
 }
 
 .bottom-section{
-  position: absolute;
-  right: 0;
-  top: 20%;
-  transform: translateY(-50%);
-  margin-right: 7vw;
+    position: absolute;
+    width: 17vw;
+    right: 0;
+    top: 17%;
+    transform: translateY(-50%);
+    margin-right: 3.5vw;
 }
 
 .bottom-content{
@@ -27,13 +27,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+
+.time{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  
+  margin-bottom: 1vw;
+}
+
+.Mic {
+  display: flex;
+  align-items: center;
+  font: 400 0.85vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+.bottom-content button{
+  background: url('./img/마이크.png') no-repeat center center;
+  background-size: 80%;
+  width: 3vw;
+  height: 3vw;
+  margin-right: 0.6vw;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.299);
 }
 
 .time-head{
   font: 400 1.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
   color: #001B62;
-  
 }
 
 .container {

@@ -45,7 +45,7 @@ const menu = [
     { id: 11, name: '완전 매콤 치킨 세트', price: 11400, image: menu_11, category: '세트' },
     { id: 12, name: '불고기 버거 세트', price: 11400, image: menu_12, category: '세트' },
     { id: 13, name: '코카가 콜라', price: 1400, image: menu_13, category: '사이드' },
-    { id: 14, name: '너 내 환타타타', price: 1400, image: menu_14, category: '사이드' },
+    { id: 14, name: '환타타', price: 1400, image: menu_14, category: '사이드' },
     { id: 15, name: '감자튀김', price: 3400, image: menu_15, category: '사이드' },
     { id: 16, name: '치즈스틱 2개', price: 2400, image: menu_16, category: '사이드' }
 
@@ -78,6 +78,7 @@ export function BurgerOrder() {
     const ReturnPage = () => {
         navigate("/Pages/Kiosk/Burger");
     }
+
 
     const handleCloseModal = () => {
         setShowModal(false);
@@ -129,7 +130,7 @@ export function BurgerOrder() {
     ));
 
     const handleOrderClick = () => {
-        navigate('../Pages/Kiosk/Burger/Payment');
+        navigate('../Pages/Kiosk/Burger/BurgerPay');
     };
 
     // voice2text
@@ -175,13 +176,16 @@ export function BurgerOrder() {
             </ul>
             <div className="right-section">
                 <div className="bottom-section">
-                <div className="bottom-content">
-                    <div className="time">
-                    <div className="time-head">남은시간</div> 
-                    <div className="time-body"><span>{timeLeft}</span>초</div>
+                    <div className="bottom-content">
+                        <div className="time">
+                            <div className="time-head">남은시간</div> 
+                            <div className="time-body"><span>{timeLeft}</span>초</div>
+                        </div>
+                        <div className="Mic">
+                            <button type="button" onClick={recordAudio}></button>
+                            음성으로도<br/>주문해보세요
+                        </div>
                     </div>
-                    <button type="button" onClick={recordAudio}>마이크</button>
-                </div>
                 </div>
                 {showModal && selectedItem && (
                     <CartModal
