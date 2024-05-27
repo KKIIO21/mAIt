@@ -16,7 +16,7 @@ function BurgerPay() {
 
   return (
     <div className='main_Pay'>
-        <div className='background'>
+        <div className='B_background'>
         
       <div className='Pay_script'>결제 수단을 선택하세요</div>
       

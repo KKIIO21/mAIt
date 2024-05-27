@@ -1,4 +1,4 @@
-.shopping-bag {
+.B_shopping-bag {
     background-color: #f8f8f8;
     padding: 1.5vw;
     border-radius: 1vw;
@@ -6,9 +6,9 @@
     height: auto;
 }
 
-.shopping-bag {
+.B_shopping-bag {
     text-align: center;
-    font: 550 1.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    font: 500 1.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
 .sdivider{
@@ -18,11 +18,11 @@
     width: 100%;
 }
 
-.shopping-bag-inner{
+.B_shopping-bag-inner{
     font: 400 1.1vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-.shopping-bag-inner ul {
+.B_shopping-bag-inner ul {
     list-style: none;
     min-height: 25vh;
     max-height: 25vh;
@@ -30,14 +30,14 @@
     overflow-y: auto
 }
 
-.shopping-bag li {
+.B_shopping-bag li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1vw;
 }
 
-.shopping-bag button {
+.B_shopping-bag button {
     background-color: #4ea2fca8;
     font: 550 1.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: white;
@@ -47,11 +47,11 @@
     cursor: pointer;
 }
 
-.total-price {
+.B_total-price {
     margin-top: 20px;
 }
 
-.total-price span{
+.B_total-price span{
     font-weight: bold;
     color: #001B62;
 }

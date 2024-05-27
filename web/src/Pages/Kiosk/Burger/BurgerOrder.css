@@ -1,10 +1,10 @@
-.main_order {
+.B_main_order {
   display: flex;
   height: 88vh; /* 전체 화면 높이 */
   position: relative; 
 }
 
-.shopping-bag {
+.B_shopping-bag {
   position: absolute;
   width: 17vw;
   right: 0;
@@ -13,7 +13,7 @@
   margin-right: 2.5vw;
 }
 
-.bottom-section{
+.B_bottom-section{
     position: absolute;
     width: 17vw;
     right: 0;
@@ -22,14 +22,14 @@
     margin-right: 3.5vw;
 }
 
-.bottom-content{
+.B_bottom-content{
   align-items: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.time{
+.B_time{
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
   align-items: center;
   font: 400 0.85vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
-.bottom-content button{
+.B_bottom-content button{
   background: url('./img/마이크.png') no-repeat center center;
   background-size: 80%;
   width: 3vw;
@@ -55,7 +55,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.299);
 }
 
-.time-head{
+.B_time-head{
   font: 400 1.3vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
   color: #001B62;
 }
@@ -94,11 +94,11 @@
   width: auto;
 }
 
-.header-title{
+.B_header-title{
   font: 200 1rem Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-.category-tabs button{
+.B_category-tabs button{
   width: 5.2vw;
   height: 3.7vh;
   margin-right: 0.5vw;
@@ -113,14 +113,14 @@
   display: inline-block;
 }
 
-.category-tabs button:hover {
+.B_category-tabs button:hover {
   font: 400 1.4vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
   background-color: #001B62; 
   color: #ffffff;
 }
 
 
-.menu-list {
+.B_menu-list {
   list-style: none;
   padding: 0;
   display: flex;
@@ -129,7 +129,7 @@
   gap: 1vw; /* 메뉴 아이템 사이의 간격 */
 }
 
-.menu-item {
+.B_menu-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,7 +142,7 @@
   aspect-ratio: 3 / 4;
 }
 
-.menu-item img {
+.B_menu-item img {
   width: 11vw;
   height: auto; 
 }
@@ -157,7 +157,7 @@
   }
 }
 
-.checkout-button-container {
+.B_checkout-button-container {
   position: absolute;
   right: 0;
   top: calc(60% + 20vh); /* shopping-bag의 아래로 위치시키기 위해 조정 */
@@ -165,19 +165,21 @@
   margin-right: 7vw;
 }
 
-.checkout-button-container button{
+.B_checkout-button-container button{
   width: 10vw;
   height: 5vh;
   background-color: #c8c8c8;
   color: #00000058;
   border: none;
   cursor: pointer;
-  font: 550 1.7vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  font: 500 1.7vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
   transition: background-color 0s;
   border-radius: 1vw;
   text-decoration: none;
 }
-.checkout-button-container button:hover{
+
+
+.B_checkout-button-container button:hover{
   background-color: #4ea2fc;
   color: #ffffff;
   font: 550 1.8vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;

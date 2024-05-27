@@ -66,7 +66,6 @@ export default function MainContent() {
           <div className="news-description">
             오늘은 어떤 소식이 있을까요?
           </div>
-          <div className="divider" />
 
           <div className='news-inner'>
             {news.map((item, index) => (
@@ -79,10 +78,13 @@ export default function MainContent() {
               </a>
             ))}
           </div>
+
+          <div className='Main-divider'></div>
+
           <div className='recommended-news'>
             {recommended && (
               <div>
-                <h2>추천 뉴스</h2>
+                <div className='recommended-news-inner'>추천 뉴스</div>
                 <a href={recommended.link} className="button" target="_blank" rel="noopener noreferrer">
                   {truncateText(recommended.title, 32)}
                 </a>

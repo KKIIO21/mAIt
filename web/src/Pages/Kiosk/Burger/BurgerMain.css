@@ -4,7 +4,7 @@
     height: 88vh;
 }
 
-.background {
+.B_background {
     user-select : none;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
 }
 
 
-.Icon{
+.B_Icon{
     margin-top: 4vh;
     cursor: pointer;
     height: 5vh;
@@ -29,7 +29,7 @@
 }
 
 
-.first_page_container {
+.B_first_page_container {
     text-align: center;
     background-repeat: no-repeat;
     background-position: top center;
@@ -55,8 +55,8 @@
 
 
 
-.order_button {
-    font: 550 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+.B_order_button {
+    font: 500 2.5vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     color: #ffffff;
     line-height: 150%;
     padding: 1.5vw;
@@ -68,22 +68,9 @@
 }
 
 
-.order_button:hover {
+.B_order_button:hover {
     background-color: #a1d6ff; 
     color: #004B86;
 
 }
 
-.eathere {
-    min-width: 3px;
-    min-height: 15px;
-    width: 12vmin;
-    height: 12vmin;
-}
-
-.takeout {
-    min-width: 10px;
-    min-height: 10px;
-    width: 12vmin;
-    height: 12vmin;
-}
