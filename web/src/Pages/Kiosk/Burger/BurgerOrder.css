@@ -1,7 +1,7 @@
 .main_order {
   display: flex;
   height: 88vh; /* 전체 화면 높이 */
-  position: relative; /* ShoppingBag의 절대 위치 기준 */
+  position: relative; 
 }
 
 .shopping-bag {
