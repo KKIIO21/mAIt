@@ -39,20 +39,35 @@
     color: #ffffff;
   }
 
+  .chatbot {
+    position: absolute; /* 절대 위치 설정 */
+    right: 0; /* 오른쪽 끝으로 이동 */
+    text-decoration: none; 
+    margin-right: 3vw; }
+
 
   .chatbot button {
     background-color: #001c6217; 
     color: #001c62; 
-    width: 10vw;
+    width: 17vw;
     height: 4vw;
     border: none;
-    font: 400 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+    font: 500 1.6vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
     cursor: pointer; 
-    border-radius: 20px; 
+    border-radius: 1.7vw; 
     text-decoration: none; 
-    display: inline-block;
-    justify-content: center;
-    text-align: center;
+    display: flex; /* flex 디스플레이를 사용 */
+  justify-content: center; /* 가로 방향의 중앙 정렬 */
+  align-items: center; /* 세로 방향의 중앙 정렬 */
+  text-align: center;
+  }
+
+  .chatbot button span{
+    font: 400 1vw Gmarket Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+
+  .chatbot img{
+    margin: 0.3vw;
   }
 
   .chatbot button:hover{
@@ -77,6 +92,8 @@
     height: auto;
     margin-right:2vw;
     margin-left: 2vw;
+    cursor: pointer; 
+
   }
   
   .header-right {
