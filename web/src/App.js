@@ -19,6 +19,10 @@ import BurgerPay from "./Pages/Kiosk/Burger/BurgerPay.js"
 import CafeMain from "./Pages/Kiosk/Cafe/CafeMain.js";
 import CafeOrder from "./Pages/Kiosk/Cafe/CafeOrder.js";
 
+import CinemaMain from "./Pages/Kiosk/Cinema/CinemaMain.js";
+import CinemaOrder from "./Pages/Kiosk/Cinema/CinemaOrder.js";
+import CinemaSearch from "./Pages/Kiosk/Cinema/CinemaSearch.js";
+
 import './App.css';
 import MainContentt from './MainContents2.js';
 
@@ -28,35 +32,34 @@ function App() {
       <div>
         <Header />
         <div className="hdivider" />
-          <Routes>
-            <Route path='/web/src/MainContents2.js' element = {<MainContent/>}/>
-          </Routes>
-      
         <Routes>
           <Route path="/" element={<MainContentt />} />
           <Route path="/AboutUs" element={<AboutUs/>} />
           <Route path="/Pages/ChatBot" element={<ChatBot/>} />
           <Route path="/Pages/Generator" element={<Generator/>} />
           <Route path="/Pages/Generator/Output" element={<Output/>} />
+          <Route path='/web/src/MainContents2.js' element={<MainContent/>}/>
+
 
           <Route path="/Pages/Kiosk/" element={<KioskMain/>}/>
-
           <Route path="/Pages/Kiosk/Burger" element={<BurgerMain/>}/>
           <Route path="/Pages/Kiosk/salesStatistics" element={<SalesStatistics/>}/>
           <Route path="/Pages/Kiosk/Burger/Order" element={<BurgerOrder/>}/>
           <Route path="/Pages/Kiosk/Burger/ShoppingBag" element={<ShoppingBag/>}/>
           <Route path="/Pages/Kiosk/PaymentChoice" element={<PaymentChoice/>}/>
-          
+
           <Route path="/Pages/Kiosk/Cafe" element={<CafeMain/>}/>
           <Route path="/Pages/Kiosk/Cafe/Order" element={<CafeOrder/>}/>
-          <Route path="/Pages/Kiosk/Burger/BurgerPay" element={<BurgerPay/>}>
 
-          </Route>
+          <Route path="/Pages/Kiosk/Cinema" element={<CinemaMain/>}/>
+          <Route path="/Pages/Kiosk/Cinema/Order" element={<CinemaOrder/>}/>
+          <Route path="/Pages/Kiosk/Cinema/Search" element={<CinemaSearch/>}/>
 
-
+          <Route path="/Pages/Kiosk/Burger/BurgerPay" element={<BurgerPay/>}/>
         </Routes>
       </div>
     </Router>
   );
 }
+
 export default App;
