@@ -48,7 +48,7 @@ export default function MainContent() {
     <div className="main_cons">
       <img src={require('./mAIt.png')} className="mlogo" alt="MLogo"/>
       <div className="main-word">
-        : 디지털 리터러시 능력 향상을 위한 친구, <br/>
+        : 디지털 소외계층을 위한 AI 체험존, <br/>
         <span>mAIt</span>와 함께 성장하세요
       </div>
       <div className="contents">

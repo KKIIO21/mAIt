@@ -1,0 +1,58 @@
+.cinema-background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh; /* 높이를 화면의 전체 높이로 설정 */
+  min-height: 100vh; /* 최소 높이도 화면의 전체 높이로 설정 */
+  background-color: rgb(20, 20, 20);
+  padding: 20px;
+  overflow-y: auto; /* 세로 스크롤 활성화 */
+}
+
+
+.cinema-header {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.cinema-logo_text {
+  font-size: 2rem;
+  color: #FF6347;
+}
+
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2개의 열로 조정 */
+  grid-gap: 20px;
+  width: 80%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+}
+
+.book-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
