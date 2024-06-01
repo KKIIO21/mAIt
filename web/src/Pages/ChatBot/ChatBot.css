@@ -62,6 +62,11 @@
   color: #ffffff;
 }
 
+.voice-choice .voice-selected {
+  background-color: #001B62 !important; /* 선택된 상태의 배경색 */
+  color: #ffffff !important; /* 선택된 상태의 텍스트 색 */
+}
+
 .ch-divider {
   background-color: #d1d1d1;
   height: 1px;
