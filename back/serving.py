@@ -123,7 +123,7 @@ def get_news():
 
 
 # text to voice
-def text2voice(r_text, chatId, voice):
+def text2voice(r_text, chatId):
     timestamp = str(int(time.time()))
     filename = f"{chatId}/{chatId}_{timestamp}_답변.mp3"
     url = "https://typecast.ai/api/speak"
@@ -188,8 +188,8 @@ def text2voice(r_text, chatId, voice):
                             final_audio_response.raise_for_status()  # HTTP 오류 발생 시 예외 발생
 
                             # 'result' 디렉토리가 존재하지 않으면 생성
-                            if not os.path.exists('result'):
-                                os.makedirs('result')
+                            if not os.path.exists('chatbot_result'):
+                                os.makedirs('chatbot_result')
 
                             with open(f"chatbot_result/{filename}", 'wb') as audio_file:
                                 audio_file.write(final_audio_response.content)
@@ -210,6 +210,18 @@ def text2voice(r_text, chatId, voice):
             print("응답에서 결과를 찾을 수 없습니다.")
             return False
     except requests.exceptions.RequestException as e:
+        print(f"text2voice 실행 중 오류 발생: {str(e)}")
+        return False
+    
+# text to voice2
+def text2voice2(r_text, chatId):
+    timestamp = str(int(time.time()))
+    try:
+        tts = gTTS(text=r_text, lang='ko')
+        tts.save(f"chatbot_result/{chatId}/{chatId}_{timestamp}_답변.mp3")
+        time.sleep(1)
+        return timestamp
+    except Exception as e:
         print(f"text2voice 실행 중 오류 발생: {str(e)}")
         return False
 
@@ -278,7 +290,11 @@ def message():
         print(f"파일을 찾을 수 없습니다.")
 
     # 답변 반환
-    timestamp = text2voice(r_text, chatId, voice)
+    if voice == 0:
+        timestamp = text2voice(r_text, chatId)
+    else:
+        timestamp = text2voice2(r_text, chatId)
+        
     if timestamp:
         return jsonify({'text': text, 'r_text': r_text, 'chatId': chatId, 'timestamp': timestamp}), 200
     else:
