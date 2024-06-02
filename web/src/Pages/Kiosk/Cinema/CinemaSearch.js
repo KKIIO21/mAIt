@@ -1,61 +1,92 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./CinemaSearch.css";
-import moviePoster from './img/movie.jpeg';
+import './CinemaSearch.css';
+import ResultModal from '../ResultModal';
+
+const correctNumbers = [
+    '232421',
+    '150919',
+    '035369',
+    '233430',
+    '190472',
+    '021003'
+];
 
 function CinemaSearch() {
     const navigate = useNavigate();
-    const [orderOption, setOrderOption] = useState(null);
-    const [currentDateTime, setCurrentDateTime] = useState({
-        date: '',
-        time: ''
-    });
+    const [reservationNumber, setReservationNumber] = useState('');
+    const [showResultModal, setShowResultModal] = useState(false);
+    const [isCorrect, setIsCorrect] = useState(false);
 
-    useEffect(() => {
-        const now = new Date();
-        const dateOptions = { year: 'numeric', month: 'numeric', day: 'numeric', weekday: 'long' };
-        const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
-
-        const formattedDate = now.toLocaleDateString('ko-KR', dateOptions);
-        const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
-
-        setCurrentDateTime({
-            date: formattedDate,
-            time: formattedTime
-        });
-    }, []);
-
-    const handleOrderClick = (option) => {
-        setOrderOption(option);
-        navigate('./Order', { state: { option } });
+    const handleNumberClick = (number) => {
+        if (reservationNumber.length < 6) {
+            setReservationNumber(reservationNumber + number);
+        }
     };
 
-    const handleReturn = () => {
-        navigate("/Pages/Kiosk/");
+    const handleDelete = () => {
+        setReservationNumber(reservationNumber.slice(0, -1));
+    };
+
+    const handleReset = () => {
+        setReservationNumber('');
+    };
+
+    const handleSubmit = () => {
+        if (correctNumbers.includes(reservationNumber)) {
+            setIsCorrect(true);
+        } else {
+            setIsCorrect(false);
+        }
+        setShowResultModal(true);
+    };
+
+    const handleCloseResultModal = () => {
+        setShowResultModal(false);
+        if (isCorrect) {
+            navigate('/Pages/Kiosk');
+        }
     };
 
     return (
-        <div className="cinema-background">
-            <div className="cinema-header">
-                <div className="cinema-logo">
-                    <div className="cinema-logo_text">mAIt Cinema</div>
-                    <div className="cinema-datetime">
-                        <div className="date">{currentDateTime.date} {currentDateTime.time}</div>
-                    </div>
-                </div>
+        <div className="cinemaSearch-background">
+            <div className="Search-header">예매 번호를 입력해주세요.</div>
+            <div className="Search-input-container">
+                {Array.from({ length: 6 }).map((_, index) => (
+                    <input
+                        key={index}
+                        type="text"
+                        value={reservationNumber[index] || ''}
+                        readOnly
+                        maxLength="1"
+                    />
+                ))}
             </div>
-            <img src={moviePoster} alt="Movie Poster" className="cinema-poster" />
-            <div className="content">
-                <p className="instruction">원하시는 서비스를 선택해주세요.</p>
-                <div className='cinema-options'>
-                    <button className="cinema-option_button" onClick={() => handleOrderClick('purchase')}>
-                        티켓 구매하기
+            <div className="Search-keypad">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, '초기화', 0, '⌫'].map((key) => (
+                    <button
+                        key={key}
+                        onClick={() => {
+                            if (key === '⌫') handleDelete();
+                            else if (key === '초기화') handleReset();
+                            else handleNumberClick(key.toString());
+                        }}
+                    >
+                        {key}
                     </button>
-                    <button className="cinema-option_button" onClick={() => handleOrderClick('print')}>
-                        예매 티켓출력
-                    </button>
-                </div>
+                ))}
             </div>
+            <div className="Search-actions">
+                <button className="Search-action-button" onClick={handleSubmit}>확인</button>
+                <button className="Search-action-button" onClick={() => navigate('/Pages/Kiosk/')}>취소</button>
+            </div>
+            {showResultModal && (
+                <ResultModal
+                    correct={isCorrect}
+                    onClose={handleCloseResultModal}
+                    navigate={navigate}
+                />
+            )}
         </div>
     );
 }

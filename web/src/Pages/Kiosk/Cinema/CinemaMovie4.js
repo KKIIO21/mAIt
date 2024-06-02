@@ -1,45 +1,71 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./CinemaOrder.css";
-import bumImage from './img/bum.jpeg'; // 이미지 경로를 정확하게 설정하세요.
-import sangImage from './img/sang.jpeg';
-import jeoImage from './img/jeo.jpeg';
-import jaImage from './img/ja.jpeg';
-import shipImage from './img/ship.jpeg';
-import myeongImage from './img/myeong.jpeg';
+import "./CinemaMovie4.css";
+import bumImage from './img/ja.jpeg';
+import ResultModal from '../ResultModal';
 
-function CinemaOrder() {
+function CinemaMovie4() {
     const navigate = useNavigate();
-    const [movies, setMovies] = useState([
-        { id: 1, title: "범죄시티", poster: bumImage },
-        { id: 2, title: "생갈치1호의 행방불명", poster: sangImage },
-        { id: 3, title: "저속스캔들", poster: jeoImage },
-        { id: 4, title: "자동차왕 엄준식", poster: jaImage },
-        { id: 5, title: "너의 십이지장을 먹고싶어", poster: shipImage },
-        { id: 6, title: "명함정 고난", poster: myeongImage }
-    ]);
+    const [showModal, setShowModal] = useState(false);
 
-    const handleMovieSelect = (id) => {
-        navigate(`/movie/${id}`);
+    const movie = {
+        title: "자동차왕 엄준식",
+        poster: bumImage,
+        rating: "15",
+        format: "2D 디지털 더빙",
+        times: [
+            { time: "12:00 - 14:00", seats: "48/120석", theater: "1관" },
+            { time: "16:50 - 18:30", seats: "48/120석", theater: "3관" },
+            { time: "17:30 - 19:30", seats: "108/120석", theater: "4관" },
+            { time: "20:10 - 22:10", seats: "48/120석", theater: "1관" },
+        ]
+    };
+
+    const handleTimeSelect = () => {
+        navigate('./Seat4');
+    };
+
+    const handleWrongSelection = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
     };
 
     return (
-        <div className="cinema-background">
-            <div className="cinema-header">
-                <div className="cinema-logo">
-                    <div className="cinema-logo_text">mAIt Cinema</div>
+        <div className="cinemaMovie4-background">
+            <div className="movie-detail-container">
+                <img src={movie.poster} alt={`${movie.title} Poster`} className="movie-poster-large" />
+                <div className="movie-info">
+                    <div className="movie-title">
+                        <span className="movie-rating">{movie.rating}</span> {movie.title}
+                    </div>
+                    <div className="movie-format">{movie.format}</div>
+                    <div className="showtimes-container">
+                        {movie.times.map((timeSlot, index) => (
+                            <button 
+                                key={index} 
+                                className="showtime-box"
+                                onClick={index === 1 ? handleTimeSelect : handleWrongSelection}
+                            >
+                                <div className="showtime">{timeSlot.time}</div>
+                                <div className="seats">{timeSlot.seats}</div>
+                                <div className="theater">{timeSlot.theater}</div>
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
-            <div className="movies-container">
-                {movies.map((movie) => (
-                    <div key={movie.id} className="movie-card" onClick={() => handleMovieSelect(movie.id)}>
-                        <img src={movie.poster} alt={`${movie.title} Poster`} className="movie-poster" />
-                        <button className="book-button">예매</button>
-                    </div>
-                ))}
-            </div>
+            {showModal && (
+                <ResultModal 
+                    correct={false} 
+                    onClose={closeModal} 
+                    navigate={navigate}
+                />
+            )}
         </div>
     );
 }
 
-export default CinemaOrder;
+export default CinemaMovie4;

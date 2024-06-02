@@ -30,6 +30,13 @@ import Movie4 from "./Pages/Kiosk/Cinema/CinemaMovie4.js";
 import Movie5 from "./Pages/Kiosk/Cinema/CinemaMovie5.js";
 import Movie6 from "./Pages/Kiosk/Cinema/CinemaMovie6.js";
 
+import Seat1 from "./Pages/Kiosk/Cinema/ChooseSeat1.js";
+import Seat2 from "./Pages/Kiosk/Cinema/ChooseSeat2.js";
+import Seat3 from "./Pages/Kiosk/Cinema/ChooseSeat3.js";
+import Seat4 from "./Pages/Kiosk/Cinema/ChooseSeat4.js";
+import Seat5 from "./Pages/Kiosk/Cinema/ChooseSeat5.js";
+import Seat6 from "./Pages/Kiosk/Cinema/ChooseSeat6.js";
+
 import './App.css';
 import MainContentt from './MainContents2.js';
 
@@ -61,11 +68,17 @@ function App() {
           <Route path="/Pages/Kiosk/Cinema" element={<CinemaMain/>}/>
           <Route path="/Pages/Kiosk/Cinema/Order" element={<CinemaOrder/>}/>
           <Route path="/Pages/Kiosk/Cinema/Order/Movie1" element={<Movie1/>}/>
+          <Route path="/Pages/Kiosk/Cinema/Order/Movie1/Seat1" element={<Seat1/>}/>
           <Route path="/Pages/Kiosk/Cinema/Order/Movie2" element={<Movie2/>}/>
+          <Route path="/Pages/Kiosk/Cinema/Order/Movie2/Seat2" element={<Seat2/>}/>
           <Route path="/Pages/Kiosk/Cinema/Order/Movie3" element={<Movie3/>}/>
+          <Route path="/Pages/Kiosk/Cinema/Order/Movie3/Seat3" element={<Seat3/>}/>
           <Route path="/Pages/Kiosk/Cinema/Order/Movie4" element={<Movie4/>}/>
+          <Route path="/Pages/Kiosk/Cinema/Order/Movie4/Seat4" element={<Seat4/>}/>
           <Route path="/Pages/Kiosk/Cinema/Order/Movie5" element={<Movie5/>}/>
+          <Route path="/Pages/Kiosk/Cinema/Order/Movie5/Seat5" element={<Seat5/>}/>
           <Route path="/Pages/Kiosk/Cinema/Order/Movie6" element={<Movie6/>}/>
+          <Route path="/Pages/Kiosk/Cinema/Order/Movie6/Seat6" element={<Seat6/>}/>
 
           <Route path="/Pages/Kiosk/Cinema/Search" element={<CinemaSearch/>}/>
 
