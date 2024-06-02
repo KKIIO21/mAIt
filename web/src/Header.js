@@ -42,6 +42,7 @@ function Header() {
               className="chatdog"
               alt="DOG"
             />
+            <span>: 뭐든 물어보세요</span>
             </button>
         </Link>
       </div>
