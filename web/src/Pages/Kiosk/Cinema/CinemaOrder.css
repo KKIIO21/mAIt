@@ -1,23 +1,27 @@
-.cinema-background {
+.cinemaOrder-background {
+  user-select: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh; /* 높이를 화면의 전체 높이로 설정 */
-  min-height: 100vh; /* 최소 높이도 화면의 전체 높이로 설정 */
-  background-color: rgb(20, 20, 20);
-  padding: 20px;
-  overflow-y: auto; /* 세로 스크롤 활성화 */
+  height: 90vh;
+  width: 50vw;
+  background-color: rgb(28, 28, 28);
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  color: white;
 }
 
 
-.cinema-header {
+.cinemaOrder-header {
   width: 100%;
   padding: 20px 0;
   text-align: center;
 }
 
-.cinema-logo_text {
+.cinemaOrder-logo_text {
   font-size: 2rem;
   color: #FF6347;
 }
