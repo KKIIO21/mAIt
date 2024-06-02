@@ -20,14 +20,14 @@ function CinemaOrder() {
     ]);
 
     const handleMovieSelect = (id) => {
-        navigate(`/movie/${id}`);
+        navigate(`./Movie${id}`);
     };
 
     return (
-        <div className="cinema-background">
-            <div className="cinema-header">
-                <div className="cinema-logo">
-                    <div className="cinema-logo_text">mAIt Cinema</div>
+        <div className="cinemaOrder-background">
+            <div className="cinemaOrder-header">
+                <div className="cinemaOrder-logo">
+                    <div className="cinemaOrder-logo_text">mAIt Cinema</div>
                 </div>
             </div>
             <div className="movies-container">

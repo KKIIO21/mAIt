@@ -1,119 +1,58 @@
-.cinema-background {
-  user-select: none;
+/* .cinema-background {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
-  width: 50vw;
-  background-color: rgb(28, 28, 28);
-  background-size: cover;
-  background-position: center;
-  margin: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  color: white;
-}
-
-.cinema-return-button {
-  margin-right: 20px;
-  margin-top: 20px;
-  padding: 10px;
-  text-align: right;
-  border: none;
-  font-size: 1.5rem;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.cinema-return-button:hover {
-  background-color: #e0e0e0;
-  color: black;
-}
-
-.cinema-title {
-  color: #ff6347;
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.cinema-coffee-cup {
-  width: 200px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.cinema-options {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.cinema-option_button {
-  width: 170px;
-  height: 170px;
-  margin: 20px;
-  padding: 1.5rem 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  background-color: #ff6347;
-  color: white;
-  transition: background-color 0.3s ease;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* 중앙 정렬을 위해 추가 */
-  text-align: center; /* 텍스트를 중앙 정렬하기 위해 추가 */
-}
-
-.cinema-option_button:hover {
-  background-color: #d6523a;
-}
-
-.cinema-logo {
-  width: 97%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  background-color: rgb(20, 20, 20);
   padding: 20px;
-  font-size: 18px;
-  font-weight: bold;
+  overflow-y: auto;
 }
 
-.cinema-logo_text {
-  color: #ff6347;
-}
-
-.cinema-datetime {
-  text-align: right;
-}
 
 .cinema-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
-}
-
-.cinema-poster {
-  width: 100%;
-  max-height: 50vh;
-  object-fit: cover;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
 }
 
-.instruction {
-  margin: 20px 0;
-  font-size: 1.5rem;
-  font-weight: bold;
+.cinema-logo_text {
+  font-size: 2rem;
+  color: #FF6347;
 }
+
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  width: 80%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+}
+
+.book-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} */

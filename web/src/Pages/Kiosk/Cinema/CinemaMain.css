@@ -1,4 +1,4 @@
-.cinema-background {
+.cinemaMain-background {
   user-select: none;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   color: white;
 }
 
-.cinema-return-button {
+.cinemaMain-return-button {
   margin-right: 20px;
   margin-top: 20px;
   padding: 10px;
@@ -26,30 +26,30 @@
   cursor: pointer;
 }
 
-.cinema-return-button:hover {
+.cinemaMain-return-button:hover {
   background-color: #e0e0e0;
   color: black;
 }
 
-.cinema-title {
+.cinemaMain-title {
   color: #ff6347;
   font-size: 3rem;
   margin-bottom: 20px;
 }
 
-.cinema-coffee-cup {
+.cinemaMain-coffee-cup {
   width: 200px;
   height: auto;
   margin-bottom: 20px;
 }
 
-.cinema-options {
+.cinemaMain-options {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.cinema-option_button {
+.cinemaMain-option_button {
   width: 170px;
   height: 170px;
   margin: 20px;
@@ -69,11 +69,11 @@
   text-align: center; /* 텍스트를 중앙 정렬하기 위해 추가 */
 }
 
-.cinema-option_button:hover {
+.cinemaMain-option_button:hover {
   background-color: #d6523a;
 }
 
-.cinema-logo {
+.cinemaMain-logo {
   width: 97%;
   display: flex;
   justify-content: space-between;
@@ -83,28 +83,28 @@
   font-weight: bold;
 }
 
-.cinema-logo_text {
+.cinemaMain-logo_text {
   color: #ff6347;
 }
 
-.cinema-datetime {
+.cinemaMain-datetime {
   text-align: right;
 }
 
-.cinema-header {
+.cinemaMain-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
-.cinema-poster {
+.cinemaMain-poster {
   width: 100%;
   max-height: 50vh;
   object-fit: cover;
 }
 
-.content {
+.cinemaMain-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,7 +112,7 @@
   text-align: center;
 }
 
-.instruction {
+.cinemaMain-instruction {
   margin: 20px 0;
   font-size: 1.5rem;
   font-weight: bold;

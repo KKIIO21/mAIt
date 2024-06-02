@@ -36,23 +36,23 @@ function CinemaMain() {
     };
 
     return (
-        <div className="cinema-background">
-            <div className="cinema-header">
-                <div className="cinema-logo">
-                    <div className="cinema-logo_text">mAIt Cinema</div>
-                    <div className="cinema-datetime">
+        <div className="cinemaMain-background">
+            <div className="cinemaMain-header">
+                <div className="cinemaMain-logo">
+                    <div className="cinemaMain-logo_text">mAIt Cinema</div>
+                    <div className="cinemaMain-datetime">
                         <div className="date">{currentDateTime.date} {currentDateTime.time}</div>
                     </div>
                 </div>
             </div>
-            <img src={moviePoster} alt="Movie Poster" className="cinema-poster" />
-            <div className="content">
-                <p className="instruction">원하시는 서비스를 선택해주세요.</p>
-                <div className='cinema-options'>
-                    <button className="cinema-option_button" onClick={handlePurchaseClick}>
+            <img src={moviePoster} alt="Movie Poster" className="cinemaMain-poster" />
+            <div className="cinemaMain-content">
+                <p className="cinemaMain-instruction">원하시는 서비스를 선택해주세요.</p>
+                <div className='cinemaMain-options'>
+                    <button className="cinemaMain-option_button" onClick={handlePurchaseClick}>
                         티켓 구매하기
                     </button>
-                    <button className="cinema-option_button" onClick={handlePrintClick}>
+                    <button className="cinemaMain-option_button" onClick={handlePrintClick}>
                         예매 티켓출력
                     </button>
                 </div>
