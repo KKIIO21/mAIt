@@ -1,58 +1,91 @@
-/* .cinema-background {
+.cinemaMovie6-background {
+  user-select: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
-  background-color: rgb(20, 20, 20);
-  padding: 20px;
-  overflow-y: auto;
-}
-
-
-.cinema-header {
-  width: 100%;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.cinema-logo_text {
-  font-size: 2rem;
-  color: #FF6347;
-}
-
-.movies-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  width: 80%;
-  max-width: 800px;
-  margin-top: 20px;
-}
-
-.movie-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
+  height: 90vh;
+  width: 50vw;
+  background-color: rgb(28, 28, 28);
+  background-size: cover;
+  background-position: center;
+  margin: auto;
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-}
-
-.movie-poster {
-  width: 100%;
-  height: auto;
-}
-
-.book-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   color: white;
-  background-color: #007BFF;
-  border: none;
+}
+
+.movie-detail-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+}
+
+.movie-poster-large {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.movie-info {
+  flex: 1;
+}
+
+.movie-title {
+  font-size: 1.5rem;
+  color: #FF6347;
+  margin-bottom: 10px;
+}
+
+.movie-rating {
+  background-color: #FF6347;
+  color: white;
+  padding: 2px 6px;
   border-radius: 5px;
+  margin-right: 10px;
+}
+
+.movie-format {
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.showtimes-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.showtime-box {
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
   cursor: pointer;
-} */
+  outline: none;
+}
+
+.showtime-box:hover {
+  background-color: #555;
+}
+
+.showtime, .seats, .theater {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.showtime {
+  font-size: 1.2rem;
+}
+
+.seats, .theater {
+  font-size: 0.9rem;
+}

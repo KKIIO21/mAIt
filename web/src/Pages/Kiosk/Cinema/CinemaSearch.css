@@ -1,58 +1,89 @@
-/* .cinema-background {
+.cinemaSearch-background {
+  user-select: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
-  background-color: rgb(20, 20, 20);
+  justify-content: center;
+  height: 90vh;
+  width: 50vw;
+  background-color: rgb(28, 28, 28);
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
   padding: 20px;
-  overflow-y: auto;
 }
 
+.Search-header {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
 
-.cinema-header {
-  width: 100%;
-  padding: 20px 0;
+.Search-input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.Search-input-container input {
+  width: 40px;
+  height: 40px;
   text-align: center;
+  margin: 0 5px;
+  border: 2px solid #fff;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.2em;
 }
 
-.cinema-logo_text {
-  font-size: 2rem;
-  color: #FF6347;
-}
-
-.movies-container {
+.Search-keypad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  width: 80%;
-  max-width: 800px;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.Search-keypad button {
+  width: 80px; /* 텍스트를 더 잘 맞추기 위해 너비 증가 */
+  height: 70px;
+  font-size: 1.5em;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.Search-keypad button:active {
+  background-color: #777;
+}
+
+.Search-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
   margin-top: 20px;
 }
 
-.movie-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-}
-
-.movie-poster {
-  width: 100%;
-  height: auto;
-}
-
-.book-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 1rem;
+.Search-action-button {
+  width: 120px; /* 더 큰 버튼을 위해 너비 증가 */
+  height: 60px; /* 더 큰 버튼을 위해 높이 증가 */
+  font-size: 1.2em;
+  background-color: #ff6347;
   color: white;
-  background-color: #007BFF;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
-} */
+  outline: none;
+}
+
+.Search-action-button:hover {
+  background-color: #ff6347; /* 호버 및 클릭 시에도 같은 색 유지 */
+
+}
+.Search-action-button:active {
+    background-color: #ff7a63; /* 호버 및 클릭 시에도 같은 색 유지 */
+}
+

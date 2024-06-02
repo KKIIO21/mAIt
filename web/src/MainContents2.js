@@ -72,7 +72,7 @@ export default function MainContent() {
                 e.stopPropagation();  // 이벤트 전파를 방지
                 handleNewsClick(categoryNames[index % 4], item.link);
               }}>
-                {categoryNames[index % 4]}: {truncateText(item.title, 32)}
+                {categoryNames[index % 4]}: {truncateText(item.title, 40)}
               </a>
             ))}
           </div>
@@ -84,7 +84,7 @@ export default function MainContent() {
               <div>
                 <div className='recommended-news-inner'>추천 뉴스</div>
                 <a href={recommended.link} className="button" target="_blank" rel="noopener noreferrer">
-                  {truncateText(recommended.title, 32)}
+                  {truncateText(recommended.title, 40)}
                 </a>
               </div>
             )}

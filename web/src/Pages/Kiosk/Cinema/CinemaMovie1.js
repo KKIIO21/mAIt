@@ -1,8 +1,13 @@
-import React from 'react';
-import "./CinemaMovie1.css";
-import bumImage from './img/bum.jpeg'; // Update the path as necessary
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './CinemaMovie1.css';
+import bumImage from './img/bum.jpeg';
+import ResultModal from '../ResultModal';
 
 function CinemaMovie1() {
+    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+
     const movie = {
         title: "범죄시티",
         poster: bumImage,
@@ -16,6 +21,18 @@ function CinemaMovie1() {
         ]
     };
 
+    const handleTimeSelect = () => {
+        navigate('./Seat1');
+    };
+
+    const handleWrongSelection = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+    };
+
     return (
         <div className="cinemaMovie1-background">
             <div className="movie-detail-container">
@@ -27,7 +44,11 @@ function CinemaMovie1() {
                     <div className="movie-format">{movie.format}</div>
                     <div className="showtimes-container">
                         {movie.times.map((timeSlot, index) => (
-                            <button key={index} className="showtime-box">
+                            <button 
+                                key={index} 
+                                className="showtime-box"
+                                onClick={index === 0 ? handleTimeSelect : handleWrongSelection}
+                            >
                                 <div className="showtime">{timeSlot.time}</div>
                                 <div className="seats">{timeSlot.seats}</div>
                                 <div className="theater">{timeSlot.theater}</div>
@@ -36,6 +57,13 @@ function CinemaMovie1() {
                     </div>
                 </div>
             </div>
+            {showModal && (
+                <ResultModal 
+                    correct={false} 
+                    onClose={closeModal} 
+                    navigate={navigate}
+                />
+            )}
         </div>
     );
 }
