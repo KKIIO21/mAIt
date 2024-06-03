@@ -11,7 +11,6 @@ function KioskModal({ situation, difficulty, onConfirm }) {
             ],
             hard: [
                 "따뜻한 카페라떼 2잔과 콜드브루 1을 포장해 보세요!",
-                "망고 스무디 1잔과 따뜻한 아메리카노 2잔을 포장해 보세요!",
                 "아이스 카페라떼 1잔과 라임 모히또 1잔을 매장에서 먹고 가세요!",
             ]
         },

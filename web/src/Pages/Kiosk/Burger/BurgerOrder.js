@@ -55,7 +55,7 @@ const menu = [
 export function BurgerOrder() {
     const navigate = useNavigate();
     const [menuCounts, setMenuCounts] = useState(menu.map(menuItem => ({ ...menuItem, count: 0 })));
-    const [timeLeft, setTimeLeft] = useState(60000000);
+    const [timeLeft, setTimeLeft] = useState(60);
     const [selectedCategory, setSelectedCategory] = useState('단품');
     const [showModal, setShowModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);

@@ -1,8 +1,8 @@
-.Seat-Movie3-background {
+.cinemaMovie3-background {
   user-select: none;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the start */
+  align-items: center;
   height: 90vh;
   width: 50vw;
   background-color: rgb(28, 28, 28);
@@ -12,116 +12,80 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   color: white;
+}
+
+.movie-detail-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #333;
   padding: 20px;
-}
-
-.Seat-movie-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  margin-top: 70px;
-  width: 100%; /* Ensure full width for movie info section */
-}
-
-.Seat-movie-poster {
-  width: 150px;
-  height: 200px;
-  margin-right: 20px;
-  margin-left: 80px;
-}
-
-.Seat-movie-details {
-  display: flex;
-  flex-direction: column;
-}
-
-.Seat-movie-title {
-  font-size: 30px; /* Increase font size for movie title */
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.Seat-movie-rating {
-  background-color: #FF6347;
-  color: white;
-  border-radius: 5px;
-  padding: 2 6px;
-  margin-left: 10px;
-  margin-right: 20px;
-}
-
-.Seat-movie-date {
-  margin-bottom: 5px;
-  margin-left: 83px;
-  font-size: 17px;
-}
-.Seat-movie-theater {
-  margin-top: 5px;
-  margin-left: 83px;
-  font-size: 17px;
-}
-
-.Seat-total-seats {
-  margin-top: 50px;
-  margin-left: 83px;
-  font-weight: bold;
-  font-size: 20px
-}
-
-.screen {
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  max-width: 800px;
   width: 100%;
-  text-align: center;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  font-size: 30px;
-  font-weight: bold;
+  margin: auto;
 }
 
-.seats-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%; /* Ensure full width for seats container */
+.movie-poster-large {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px;
 }
 
-.seat-row {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
+.movie-info {
+  flex: 1;
 }
 
-.seat {
-  width: 40px;
-  height: 40px;
-  background-color: grey;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+.movie-title {
+  font-size: 1.5rem;
+  color: #FF6347;
+  margin-bottom: 10px;
 }
 
-.seat.selected {
-  background-color: #FF6347;
-}
-
-.selected-seats {
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-.Seat-confirm-button {
-  align-self: center;
-  margin-top: 20px;
-  padding: 10px 20px;
+.movie-rating {
   background-color: #FF6347;
   color: white;
-  border: none;
+  padding: 2px 6px;
   border-radius: 5px;
-  cursor: pointer;
-  font-size: 18px;
+  margin-right: 10px;
 }
 
-.Seat-confirm-button:hover {
-  background-color: #ff7f61;
+.movie-format {
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.showtimes-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.showtime-box {
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.showtime-box:hover {
+  background-color: #555;
+}
+
+.showtime, .seats, .theater {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.showtime {
+  font-size: 1.2rem;
+}
+
+.seats, .theater {
+  font-size: 0.9rem;
 }

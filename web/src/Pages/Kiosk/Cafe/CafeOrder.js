@@ -30,7 +30,7 @@ const menu = [
 export function CafeOrder() {
     const navigate = useNavigate();
     const [menuCounts, setMenuCounts] = useState(menu.map(menuItem => ({ ...menuItem, count: 0 })));
-    const [timeLeft, setTimeLeft] = useState(60000000);
+    const [timeLeft, setTimeLeft] = useState(60);
     const [selectedCategory, setSelectedCategory] = useState('시즌 메뉴');
     const [showModal, setShowModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);

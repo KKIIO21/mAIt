@@ -6,7 +6,7 @@ let audio = null; // 전역 변수로 Audio 객체 선언
 
 const ChatBot = () => {
     const [chatId, setChatId] = useState(''); // 대화 id를 저장할 상태입니다.
-    const [selectedVoice, setSelectedVoice] = useState(0);
+    const [selectedVoice, setSelectedVoice] = useState(0); // default로 0을 설정합니다.
     const [chatHistory, setChatHistory] = useState([]);
     const [message, setMessage] = useState('');
     const chatListRef = useRef(null); // chat-list에 대한 ref 생성
@@ -105,8 +105,8 @@ const ChatBot = () => {
             <div className="chat">
                 <div className="voice-choice">
                     <div className="voice-explain"><span className="highlight">"목소리"</span>를 선택해보세요</div>
-                    <button className={selectedVoice === 1 ? 'voice-selected' : 'voice-not-selected'} onClick={() => handleVoiceSelection(1)}>여자아이</button>
-                    <button className={selectedVoice === 2 ? 'voice-selected' : 'voice-not-selected'} onClick={() => handleVoiceSelection(2)}>남자아이</button>
+                    <button className={selectedVoice === 0 ? 'voice-selected' : 'voice-not-selected'} onClick={() => handleVoiceSelection(0)}>여자아이</button>
+                    <button className={selectedVoice === 1 ? 'voice-selected' : 'voice-not-selected'} onClick={() => handleVoiceSelection(1)}>남자아이</button>
                 </div>
             </div>
             <div className="chat-space">
