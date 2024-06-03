@@ -105,8 +105,8 @@ const ChatBot = () => {
             <div className="chat">
                 <div className="voice-choice">
                     <div className="voice-explain"><span className="highlight">"목소리"</span>를 선택해보세요</div>
-                    <button className={selectedVoice === 1 ? 'voice-selected' : 'voice-not-selected'} onClick={() => handleVoiceSelection(1)}>여자아이</button>
-                    <button className={selectedVoice === 2 ? 'voice-selected' : 'voice-not-selected'} onClick={() => handleVoiceSelection(2)}>남자아이</button>
+                    <button className={selectedVoice === 0 ? 'voice-selected' : 'voice-not-selected'} onClick={() => handleVoiceSelection(0)}>여자아이</button>
+                    <button className={selectedVoice === 1 ? 'voice-selected' : 'voice-not-selected'} onClick={() => handleVoiceSelection(1)}>남자아이</button>
                 </div>
             </div>
             <div className="chat-space">
